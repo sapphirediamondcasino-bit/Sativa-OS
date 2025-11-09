@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SativaOS - Premium Discord Bot 🌿</title>
+    <title>SativaOS - Premium Discord Bot 🍃</title>
     
-    <!-- Your Logo as Favicon -->
     <link rel="icon" type="image/png" href="https://cdn.discordapp.com/attachments/1428592257581318255/1437125541349167224/SativaOS.png?ex=69121af5&is=6910c975&hm=8c38a37e5f984a252ff12c6e174cb1dbf33028661f389493ce4357c455377183&">
     
     <style>
@@ -22,7 +21,7 @@
             overflow-x: hidden;
         }
 
-        /* Animated Cannabis Leaf Background */
+        /* Real Cannabis Leaf Background */
         .bg-animation {
             position: fixed;
             top: 0;
@@ -31,23 +30,60 @@
             height: 100%;
             z-index: -1;
             background: linear-gradient(135deg, #0a3d2a 0%, #000000 50%, #1a1a1a 100%);
+            overflow: hidden;
         }
 
-        .leaf-bg {
+        .cannabis-leaf {
             position: absolute;
-            width: 100px;
-            height: 100px;
-            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="%2300ff0033" d="M50,10 C40,20 35,35 35,50 C35,65 40,80 50,90 C60,80 65,65 65,50 C65,35 60,20 50,10 M50,30 L45,50 L50,70 L55,50 Z"/></svg>');
-            opacity: 0.1;
-            animation: floatLeaf 20s infinite;
+            width: 80px;
+            height: 80px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 140"><defs><linearGradient id="leafGrad" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" style="stop-color:%2300ff00;stop-opacity:0.3"/><stop offset="100%" style="stop-color:%23006600;stop-opacity:0.3"/></linearGradient></defs><path fill="url(%23leafGrad)" d="M50,10 L45,30 L35,35 L30,50 L35,65 L45,70 L50,90 L55,70 L65,65 L70,50 L65,35 L55,30 Z M50,20 L47,35 L42,40 L38,50 L42,60 L47,65 L50,80 L53,65 L58,60 L62,50 L58,40 L53,35 Z M30,50 L25,48 L20,50 L25,52 Z M70,50 L75,48 L80,50 L75,52 Z M42,30 L40,25 L38,20 L40,28 Z M58,30 L60,25 L62,20 L60,28 Z M42,70 L40,75 L38,80 L40,72 Z M58,70 L60,75 L62,80 L60,72 Z"/></svg>');
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: 0.4;
+            animation: floatLeaf 25s infinite linear;
+            filter: drop-shadow(0 0 8px rgba(0, 255, 0, 0.5));
         }
 
         @keyframes floatLeaf {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-100vh) rotate(360deg); }
+            0% { 
+                transform: translateY(0) translateX(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.4;
+            }
+            90% {
+                opacity: 0.4;
+            }
+            100% { 
+                transform: translateY(-110vh) translateX(100px) rotate(720deg);
+                opacity: 0;
+            }
         }
 
-        /* Header/Nav */
+        /* Smoke effect */
+        .smoke {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 300px;
+            background: 
+                radial-gradient(ellipse at bottom, rgba(0, 255, 0, 0.15) 0%, transparent 60%),
+                radial-gradient(ellipse at bottom left, rgba(0, 200, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at bottom right, rgba(0, 200, 0, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 1;
+            animation: smokeRise 8s ease-in-out infinite;
+        }
+
+        @keyframes smokeRise {
+            0%, 100% { transform: translateY(0); opacity: 0.8; }
+            50% { transform: translateY(-20px); opacity: 1; }
+        }
+
+        /* Navigation */
         nav {
             position: fixed;
             top: 0;
@@ -82,7 +118,12 @@
             background: linear-gradient(90deg, #00ff00, #00cc00, #00ff00);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 30px rgba(0, 255, 0, 0.5);
+            animation: textGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes textGlow {
+            0%, 100% { filter: drop-shadow(0 0 10px #00ff00); }
+            50% { filter: drop-shadow(0 0 20px #00ff00); }
         }
 
         nav a {
@@ -101,7 +142,7 @@
             box-shadow: 0 0 20px #00ff00;
         }
 
-        /* Hero Section with Banner */
+        /* Hero */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -119,10 +160,10 @@
             margin-bottom: 40px;
             border-radius: 20px;
             box-shadow: 0 10px 50px rgba(0, 255, 0, 0.4);
-            animation: glow 3s ease-in-out infinite;
+            animation: bannerGlow 3s ease-in-out infinite;
         }
 
-        @keyframes glow {
+        @keyframes bannerGlow {
             0%, 100% { box-shadow: 0 10px 50px rgba(0, 255, 0, 0.4); }
             50% { box-shadow: 0 10px 80px rgba(0, 255, 0, 0.7); }
         }
@@ -133,20 +174,7 @@
             background: linear-gradient(90deg, #00ff00, #00ff88, #00ffcc);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 30px rgba(0, 255, 0, 0.5);
-        }
-
-        .hero p {
-            font-size: 1.5em;
-            color: #aaa;
-            margin-bottom: 40px;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            justify-content: center;
+            filter: drop-shadow(0 0 30px rgba(0, 255, 0, 0.5));
         }
 
         .btn {
@@ -158,8 +186,7 @@
             font-weight: bold;
             cursor: pointer;
             border: none;
-            position: relative;
-            overflow: hidden;
+            display: inline-block;
         }
 
         .btn-primary {
@@ -182,13 +209,22 @@
         .btn-secondary:hover {
             background: #00ff00;
             color: #000;
-            box-shadow: 0 5px 30px #00ff00;
         }
 
-        /* Features Section */
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        /* Features */
         .features {
             padding: 100px 50px;
-            background: linear-gradient(180deg, rgba(0, 0, 0, 0.8), rgba(10, 61, 42, 0.3));
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.9), rgba(10, 61, 42, 0.3));
+            position: relative;
+            z-index: 2;
         }
 
         .features h2 {
@@ -196,7 +232,7 @@
             font-size: 3.5em;
             margin-bottom: 60px;
             color: #00ff00;
-            text-shadow: 0 0 30px rgba(0, 255, 0, 0.5);
+            filter: drop-shadow(0 0 30px rgba(0, 255, 0, 0.5));
         }
 
         .feature-grid {
@@ -217,115 +253,17 @@
             overflow: hidden;
         }
 
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(0, 255, 0, 0.1) 0%, transparent 70%);
-            opacity: 0;
-            transition: opacity 0.4s;
-        }
-
-        .feature-card:hover::before {
-            opacity: 1;
-        }
-
         .feature-card:hover {
             transform: translateY(-15px) scale(1.02);
             box-shadow: 0 15px 50px rgba(0, 255, 0, 0.5);
-            border-color: #00ffaa;
-        }
-
-        .feature-card h3 {
-            font-size: 2.2em;
-            margin-bottom: 20px;
-            color: #00ff00;
-        }
-
-        .feature-icon {
-            font-size: 4em;
-            margin-bottom: 25px;
-            filter: drop-shadow(0 0 10px #00ff00);
-        }
-
-        .feature-card p {
-            font-size: 1.1em;
-            line-height: 1.6;
-            color: #ccc;
-        }
-
-        /* Commands Section */
-        .commands {
-            padding: 100px 50px;
-            background: rgba(0, 0, 0, 0.9);
-        }
-
-        .commands h2 {
-            text-align: center;
-            font-size: 3.5em;
-            margin-bottom: 60px;
-            color: #00ff00;
-            text-shadow: 0 0 30px rgba(0, 255, 0, 0.5);
-        }
-
-        .command-list {
-            max-width: 1100px;
-            margin: 0 auto;
-            background: linear-gradient(135deg, rgba(0, 255, 0, 0.1), rgba(0, 0, 0, 0.8));
-            padding: 50px;
-            border-radius: 25px;
-            border: 3px solid #00ff00;
-            box-shadow: 0 10px 40px rgba(0, 255, 0, 0.3);
-        }
-
-        .command-category {
-            margin-bottom: 40px;
-        }
-
-        .command-category h3 {
-            color: #00ff00;
-            font-size: 2em;
-            margin-bottom: 20px;
-            text-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
-        }
-
-        .command-item {
-            background: rgba(0, 255, 0, 0.08);
-            padding: 18px;
-            margin: 12px 0;
-            border-radius: 12px;
-            border-left: 5px solid #00ff00;
-            transition: all 0.3s;
-        }
-
-        .command-item:hover {
-            background: rgba(0, 255, 0, 0.15);
-            transform: translateX(10px);
-            box-shadow: 0 5px 20px rgba(0, 255, 0, 0.3);
-        }
-
-        .command-item code {
-            color: #00ff00;
-            font-size: 1.2em;
-            font-weight: bold;
-            text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
         }
 
         /* Dashboards */
         .dashboards {
             padding: 100px 50px;
             background: linear-gradient(180deg, rgba(0, 0, 0, 0.9), rgba(10, 61, 42, 0.3));
-        }
-
-        .dashboards h2 {
-            text-align: center;
-            font-size: 3.5em;
-            margin-bottom: 60px;
-            color: #00ff00;
-            text-shadow: 0 0 30px rgba(0, 255, 0, 0.5);
+            position: relative;
+            z-index: 2;
         }
 
         .dashboard-grid {
@@ -344,11 +282,10 @@
             text-align: center;
             transition: all 0.4s;
             cursor: pointer;
-            position: relative;
         }
 
         .dashboard-card:hover {
-            transform: scale(1.08) rotate(-2deg);
+            transform: scale(1.08);
             box-shadow: 0 0 60px rgba(0, 255, 0, 0.6);
         }
 
@@ -356,11 +293,6 @@
             font-size: 2.2em;
             color: #00ff00;
             margin-bottom: 25px;
-            text-shadow: 0 0 20px rgba(0, 255, 0, 0.7);
-        }
-
-        .dashboard-card.locked {
-            opacity: 0.6;
         }
 
         .coming-soon {
@@ -371,42 +303,47 @@
             margin-top: 15px;
             display: inline-block;
             font-weight: bold;
-            box-shadow: 0 5px 20px rgba(255, 102, 0, 0.5);
         }
 
-        /* Footer */
-        footer {
-            background: #000;
-            padding: 50px;
-            text-align: center;
-            border-top: 3px solid #00ff00;
-            box-shadow: 0 -5px 30px rgba(0, 255, 0, 0.3);
-        }
-
-        footer p {
-            color: #888;
-            font-size: 1.1em;
-        }
-
-        /* Smoke Effect */
-        .smoke {
+        /* Bot Status Widget */
+        .bot-status {
             position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 250px;
-            background: linear-gradient(to top, rgba(0, 255, 0, 0.15), transparent);
-            pointer-events: none;
-            z-index: -1;
+            top: 100px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.9);
+            border: 2px solid #00ff00;
+            border-radius: 15px;
+            padding: 20px;
+            z-index: 999;
+            min-width: 200px;
+            box-shadow: 0 5px 30px rgba(0, 255, 0, 0.3);
+        }
+
+        .status-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #00ff00;
+            display: inline-block;
+            margin-right: 10px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; box-shadow: 0 0 10px #00ff00; }
+            50% { opacity: 0.5; box-shadow: 0 0 20px #00ff00; }
+        }
+
+        .status-offline {
+            background: #ff0000;
+            animation: none;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5em; }
             nav { padding: 15px 20px; flex-direction: column; gap: 15px; }
-            .logo-text { font-size: 1.5em; }
-            .feature-grid, .dashboard-grid { grid-template-columns: 1fr; }
-            .hero-banner { max-width: 95%; }
+            .bot-status { top: auto; bottom: 20px; right: 20px; }
         }
     </style>
 </head>
@@ -414,6 +351,17 @@
     <!-- Background -->
     <div class="bg-animation" id="bg-animation"></div>
     <div class="smoke"></div>
+
+    <!-- Bot Status Widget -->
+    <div class="bot-status" id="bot-status">
+        <div style="margin-bottom: 10px;">
+            <span class="status-dot" id="status-dot"></span>
+            <strong id="status-text">Checking...</strong>
+        </div>
+        <div style="font-size: 0.9em; color: #888;" id="bot-stats">
+            Loading stats...
+        </div>
+    </div>
 
     <!-- Navigation -->
     <nav>
@@ -423,14 +371,13 @@
         </div>
         <div style="display: flex; gap: 10px; flex-wrap: wrap;">
             <a href="#features">Features</a>
-            <a href="#commands">Commands</a>
             <a href="#dashboards">Dashboards</a>
-            <a href="https://discord.com/oauth2/authorize?client_id=1436536083562106882&permissions=3960434742263542&integration_type=0&scope=bot" class="btn btn-primary" style="padding: 8px 20px;" target="_blank">Invite Bot</a>
+            <a href="https://discord.com/oauth2/authorize?client_id=1436536083562106882&permissions=3960434742263542&integration_type=0&scope=bot" target="_blank">Invite Bot</a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
+    <!-- Hero -->
+    <section class="hero">
         <img src="https://cdn.discordapp.com/attachments/1428592257581318255/1437125559787192501/Sativa_OS_BAnner_2.0.png?ex=69121af9&is=6910c979&hm=9bdd3c6d673208af5b42bc06ce7618a0d36076402e5b4c0d5ed9bc809681a2ce&" alt="SativaOS Banner" class="hero-banner">
         
         <h1>The Ultimate Cannabis Bot</h1>
@@ -440,147 +387,37 @@
             <a href="https://discord.com/oauth2/authorize?client_id=1436536083562106882&permissions=3960434742263542&integration_type=0&scope=bot" class="btn btn-primary" target="_blank">
                 🍃 Invite to Discord
             </a>
-            <a href="#features" class="btn btn-secondary">Learn More</a>
+            <a href="#dashboards" class="btn btn-secondary">View Dashboards</a>
         </div>
     </section>
 
-    <!-- Features Section -->
+    <!-- Features -->
     <section class="features" id="features">
-        <h2>🔥 What Can SativaOS Do?</h2>
+        <h2>🔥 Bot Features</h2>
         <div class="feature-grid">
             <div class="feature-card">
-                <div class="feature-icon">🤖</div>
-                <h3>MaryJane AI</h3>
-                <p>In-house cannabis AI that knows everything about strains, growing, terpenes, and effects. No external APIs needed!</p>
+                <h3>🤖 MaryJane AI</h3>
+                <p>In-house cannabis AI with strain knowledge</p>
             </div>
-
             <div class="feature-card">
-                <div class="feature-icon">🍃</div>
-                <h3>Server-Specific Strains</h3>
-                <p>Add custom strains with images to YOUR server. Each server has its own strain database!</p>
+                <h3>🍃 Custom Strains</h3>
+                <p>Server-specific strain database with images</p>
             </div>
-
             <div class="feature-card">
-                <div class="feature-icon">📊</div>
-                <h3>Auto Stat Channels</h3>
-                <p>Live updating stat channels at the top of your server showing members, bots, and more!</p>
+                <h3>📊 Live Stats</h3>
+                <p>Auto-updating stat channels</p>
             </div>
-
             <div class="feature-card">
-                <div class="feature-icon">🎫</div>
-                <h3>Ticket System</h3>
-                <p>Auto-created ticket channels for support with full logging and management.</p>
+                <h3>🎫 Ticket System</h3>
+                <p>Auto-created support channels</p>
             </div>
-
             <div class="feature-card">
-                <div class="feature-icon">📥</div>
-                <h3>Invite Tracker</h3>
-                <p>Track who invites who with beautiful embeds and leaderboards.</p>
+                <h3>🎮 Mini Games</h3>
+                <p>DuckHunt, Trivia, and more</p>
             </div>
-
             <div class="feature-card">
-                <div class="feature-icon">🎮</div>
-                <h3>Mini Games</h3>
-                <p>DuckHunt, Cannabis Trivia, and more fun games for your community!</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">🎁</div>
-                <h3>Giveaway System</h3>
-                <p>Automated giveaways with reaction entry and random winner selection.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">🔥</div>
-                <h3>Special Events</h3>
-                <p>Free Pipe Friday, Free Bong Monday, Weed Photos channel, and more!</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">🏪</div>
-                <h3>Dispensary Listings</h3>
-                <p>Browse licensed dispensaries by region with cool embeds. All 21+ only!</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">🎵</div>
-                <h3>Music Commands</h3>
-                <p>Music control commands with embeds (display only, no Python needed).</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">🔨</div>
-                <h3>Moderation</h3>
-                <p>Ban, kick, timeout, warn, and message clearing with mod logs.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">💾</div>
-                <h3>Server Backups</h3>
-                <p>Save and restore your entire server structure like Xenon bot.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Commands Section -->
-    <section class="commands" id="commands">
-        <h2>💬 Command List</h2>
-        <div class="command-list">
-            <div class="command-category">
-                <h3>🍃 MaryJane AI</h3>
-                <div class="command-item">
-                    <code>mj &lt;message&gt;</code> - Chat with MaryJane AI about cannabis
-                </div>
-            </div>
-
-            <div class="command-category">
-                <h3>⚙️ Setup</h3>
-                <div class="command-item">
-                    <code>/setup</code> - Create all channels
-                </div>
-                <div class="command-item">
-                    <code>/setup-events</code> - Create event channels
-                </div>
-            </div>
-
-            <div class="command-category">
-                <h3>🍃 Strains</h3>
-                <div class="command-item">
-                    <code>/addstrain</code> - Add custom strain
-                </div>
-                <div class="command-item">
-                    <code>/strain [name]</code> - View strain info
-                </div>
-                <div class="command-item">
-                    <code>/strains</code> - List all strains
-                </div>
-            </div>
-
-            <div class="command-category">
                 <h3>🏪 Dispensaries</h3>
-                <div class="command-item">
-                    <code>/shops</code> - Browse dispensaries
-                </div>
-            </div>
-
-            <div class="command-category">
-                <h3>📊 Stats</h3>
-                <div class="command-item">
-                    <code>/invites</code> - Check invites
-                </div>
-                <div class="command-item">
-                    <code>/serverinfo</code> - Server info
-                </div>
-            </div>
-
-            <div class="command-category">
-                <h3>🎮 Games</h3>
-                <div class="command-item">
-                    <code>/duck</code> - Play DuckHunt
-                </div>
-                <div class="command-item">
-                    <code>/trivia</code> - Cannabis trivia
-                </div>
+                <p>Licensed dispensary listings by region</p>
             </div>
         </div>
     </section>
@@ -589,25 +426,22 @@
     <section class="dashboards" id="dashboards">
         <h2>📊 Management Dashboards</h2>
         <div class="dashboard-grid">
-            <div class="dashboard-card locked">
+            <div class="dashboard-card" onclick="openDashboard('owner')">
                 <h3>👑 Owner Dashboard</h3>
-                <p>Full control over bot and all servers</p>
+                <p>Full bot control</p>
                 <span class="coming-soon">Coming Soon</span>
             </div>
-
-            <div class="dashboard-card locked">
+            <div class="dashboard-card" onclick="openDashboard('global')">
                 <h3>🌍 Global Admin</h3>
-                <p>Manage bot across all servers</p>
+                <p>Network-wide management</p>
                 <span class="coming-soon">Coming Soon</span>
             </div>
-
-            <div class="dashboard-card locked">
+            <div class="dashboard-card" onclick="openDashboard('staff')">
                 <h3>👥 Staff Dashboard</h3>
-                <p>Manage Nexus server</p>
+                <p>Nexus server tools</p>
                 <span class="coming-soon">Coming Soon</span>
             </div>
-
-            <div class="dashboard-card locked">
+            <div class="dashboard-card" onclick="openDashboard('server')">
                 <h3>🏢 Server Admin</h3>
                 <p>Manage your server</p>
                 <span class="coming-soon">Coming Soon</span>
@@ -615,24 +449,53 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <img src="https://cdn.discordapp.com/attachments/1428592257581318255/1437125541349167224/SativaOS.png?ex=69121af5&is=6910c975&hm=8c38a37e5f984a252ff12c6e174cb1dbf33028661f389493ce4357c455377183&" alt="SativaOS" style="width: 60px; margin-bottom: 20px;">
-        <p>🍃 SativaOS - 100% Free Discord Bot</p>
-        <p style="margin-top: 10px;">No API Keys Required • All Features Included</p>
-        <p style="margin-top: 20px; font-size: 0.9em;">⚠️ All cannabis content is 21+ only</p>
-    </footer>
-
     <script>
-        // Create floating leaves
+        // API URL - Change this to your bot's API server
+        const API_URL = 'http://localhost:3001'; // Change to your server IP when deployed
+
+        // Create floating cannabis leaves
         const bgAnimation = document.getElementById('bg-animation');
-        for (let i = 0; i < 20; i++) {
+        for (let i = 0; i < 30; i++) {
             const leaf = document.createElement('div');
-            leaf.className = 'leaf-bg';
-            leaf.style.left = Math.random() * 100 + '%';
-            leaf.style.animationDelay = Math.random() * 20 + 's';
-            leaf.style.animationDuration = (15 + Math.random() * 15) + 's';
+            leaf.className = 'cannabis-leaf';
+            leaf.style.left = (Math.random() * 100) + '%';
+            leaf.style.animationDelay = (Math.random() * 25) + 's';
+            leaf.style.animationDuration = (20 + Math.random() * 15) + 's';
             bgAnimation.appendChild(leaf);
+        }
+
+        // Check bot status
+        async function checkBotStatus() {
+            try {
+                const response = await fetch(`${API_URL}/api/health`);
+                const data = await response.json();
+                
+                document.getElementById('status-text').textContent = 'Bot Online';
+                document.getElementById('status-dot').classList.remove('status-offline');
+                
+                // Get stats
+                const statsResponse = await fetch(`${API_URL}/api/stats`);
+                const stats = await statsResponse.json();
+                
+                document.getElementById('bot-stats').innerHTML = `
+                    <div>🏢 ${stats.guilds || 0} servers</div>
+                    <div>👥 ${stats.users?.toLocaleString() || 0} users</div>
+                    <div>🏓 ${stats.ping || 0}ms</div>
+                `;
+            } catch (error) {
+                document.getElementById('status-text').textContent = 'Bot Offline';
+                document.getElementById('status-dot').classList.add('status-offline');
+                document.getElementById('bot-stats').innerHTML = '<div style="color: #ff6666;">Connect your bot API</div>';
+            }
+        }
+
+        // Check status on load and every 30 seconds
+        checkBotStatus();
+        setInterval(checkBotStatus, 30000);
+
+        // Dashboard functions
+        function openDashboard(type) {
+            alert(`${type.charAt(0).toUpperCase() + type.slice(1)} Dashboard will connect to your bot API!\n\nChange API_URL in the code to your server IP.`);
         }
 
         // Smooth scroll

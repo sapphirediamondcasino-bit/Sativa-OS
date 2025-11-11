@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SativaOS - Premium Cannabis Discord Bot 🍃</title>
+    <title>MJ420 - MaryJane AI Network 🌿💜</title>
     
     <link rel="icon" type="image/png" href="https://cdn.discordapp.com/attachments/1428592257581318255/1437125541349167224/SativaOS.png?ex=69121af5&is=6910c975&hm=8c38a37e5f984a252ff12c6e174cb1dbf33028661f389493ce4357c455377183&">
     
@@ -114,7 +114,7 @@
         .logo-text {
             font-size: 2em;
             font-weight: bold;
-            background: linear-gradient(90deg, #00ff00, #00cc00, #00ff00);
+            background: linear-gradient(90deg, #00ff00, #9b59b6, #00ff00);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: textGlow 3s ease-in-out infinite;
@@ -308,7 +308,7 @@
             margin-bottom: 10px;
         }
 
-        /* Bot Status Widget */
+        /* Bot Status Widget - Dual Bot Support */
         .bot-status {
             position: fixed;
             top: 100px;
@@ -318,8 +318,20 @@
             border-radius: 15px;
             padding: 20px;
             z-index: 999;
-            min-width: 220px;
+            min-width: 250px;
             box-shadow: 0 5px 30px rgba(0, 255, 0, 0.3);
+        }
+
+        .bot-status-item {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .bot-status-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
         }
 
         .status-dot {
@@ -415,22 +427,36 @@
     <div class="bg-animation" id="bg-animation"></div>
     <div class="smoke"></div>
 
-    <!-- Bot Status Widget -->
+    <!-- Bot Status Widget - Both Bots -->
     <div class="bot-status" id="bot-status">
-        <div style="margin-bottom: 10px;">
-            <span class="status-dot" id="status-dot"></span>
-            <strong id="status-text">Checking...</strong>
+        <!-- SativaOS Status -->
+        <div class="bot-status-item">
+            <div style="margin-bottom: 8px;">
+                <span class="status-dot" id="sativa-dot"></span>
+                <strong style="color: #00ff00;">SativaOS</strong>
+            </div>
+            <div style="font-size: 0.85em; color: #888;" id="sativa-stats">
+                Loading...
+            </div>
         </div>
-        <div style="font-size: 0.9em; color: #888;" id="bot-stats">
-            Loading stats...
+        
+        <!-- IndicaOS Status -->
+        <div class="bot-status-item">
+            <div style="margin-bottom: 8px;">
+                <span class="status-dot" id="indica-dot"></span>
+                <strong style="color: #9b59b6;">IndicaOS</strong>
+            </div>
+            <div style="font-size: 0.85em; color: #888;" id="indica-stats">
+                Loading...
+            </div>
         </div>
     </div>
 
     <!-- Navigation -->
     <nav>
         <div class="logo">
-            <img src="https://cdn.discordapp.com/attachments/1428592257581318255/1437125541349167224/SativaOS.png?ex=69121af5&is=6910c975&hm=8c38a37e5f984a252ff12c6e174cb1dbf33028661f389493ce4357c455377183&" alt="SativaOS Logo">
-            <span class="logo-text">SativaOS</span>
+            <img src="https://cdn.discordapp.com/attachments/1428592257581318255/1437125541349167224/SativaOS.png?ex=69121af5&is=6910c975&hm=8c38a37e5f984a252ff12c6e174cb1dbf33028661f389493ce4357c455377183&" alt="MJ420 Logo">
+            <span class="logo-text">MJ420</span>
         </div>
         <div style="display: flex; gap: 10px; flex-wrap: wrap;">
             <a href="#" onclick="showPage('home')" class="nav-link active">Home</a>
@@ -448,8 +474,8 @@
         <section class="hero">
             <img src="https://cdn.discordapp.com/attachments/1428592257581318255/1437125559787192501/Sativa_OS_BAnner_2.0.png?ex=69121af9&is=6910c979&hm=9bdd3c6d673208af5b42bc06ce7618a0d36076402e5b4c0d5ed9bc809681a2ce&" alt="SativaOS Banner" class="hero-banner">
             
-            <h1>The Ultimate Cannabis Bot</h1>
-            <p style="font-size: 1.2em; color: #00ff00;">100% Free • No API Keys • All Features Included</p>
+            <h1>MaryJane AI Network</h1>
+            <p style="font-size: 1.2em; color: #00ff00;">🌿 SativaOS • 💜 IndicaOS • 🌈 HybridOS (Coming Soon)</p>
             
             <div class="cta-buttons">
                 <a href="https://discord.com/oauth2/authorize?client_id=1436536083562106882&permissions=3960434742263542&integration_type=0&scope=bot" class="btn btn-primary" target="_blank">
@@ -460,27 +486,72 @@
         </section>
 
         <div class="content-section">
-            <h2>🌿 What is SativaOS?</h2>
-            <p>SativaOS is a premium Discord bot designed for cannabis communities. With in-house AI, strain databases, dispensary listings, and server management tools, it's everything you need to run a professional cannabis server.</p>
+            <h2>🌿 The MaryJane AI Network</h2>
+            <p>Three specialized Discord bots powered by MaryJane AI - each with its own personality and focus. Choose the bot that fits your community's vibe!</p>
             
-            <h3>✨ Key Highlights</h3>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px;">
-                <div style="padding: 20px; background: rgba(0,255,0,0.1); border-radius: 10px; border: 2px solid #00ff00;">
-                    <strong style="color: #00ff00; font-size: 1.2em;">🤖 MaryJane AI</strong>
-                    <p>In-house cannabis AI with 3 conversation modes and extensive strain knowledge</p>
+            <h3>🤖 Meet the Bots</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 30px;">
+                <!-- SativaOS -->
+                <div style="padding: 30px; background: linear-gradient(135deg, rgba(0,255,0,0.2), rgba(0,0,0,0.9)); border-radius: 15px; border: 3px solid #00ff00;">
+                    <h3 style="color: #00ff00; font-size: 2em; margin-bottom: 15px;">🌿 SativaOS</h3>
+                    <p style="color: #00ff00; font-weight: bold; margin-bottom: 10px;">Active & Educational</p>
+                    <p>Complete cannabis community bot with strain databases, dispensary listings, growing tips, and MaryJane AI.</p>
+                    <ul style="margin: 15px 0 15px 20px;">
+                        <li>🔥 Free Pipe Friday</li>
+                        <li>💨 Free Bong Monday</li>
+                        <li>🌿 Daily strain posts</li>
+                        <li>🏪 Dispensary listings</li>
+                        <li>📊 Auto stat channels</li>
+                    </ul>
+                    <p style="margin-top: 15px;"><strong>AI Trigger:</strong> <code>mj &lt;message&gt;</code></p>
+                    <a href="https://discord.com/oauth2/authorize?client_id=1436536083562106882&permissions=3960434742263542&integration_type=0&scope=bot" class="btn btn-primary" target="_blank" style="margin-top: 15px; font-size: 1em; padding: 12px 25px;">
+                        Invite SativaOS
+                    </a>
                 </div>
-                <div style="padding: 20px; background: rgba(0,255,0,0.1); border-radius: 10px; border: 2px solid #00ff00;">
-                    <strong style="color: #00ff00; font-size: 1.2em;">🍃 Custom Strains</strong>
-                    <p>Server-specific strain database where admins can add unlimited strains with images</p>
+                
+                <!-- IndicaOS -->
+                <div style="padding: 30px; background: linear-gradient(135deg, rgba(155,89,182,0.2), rgba(0,0,0,0.9)); border-radius: 15px; border: 3px solid #9b59b6;">
+                    <h3 style="color: #9b59b6; font-size: 2em; margin-bottom: 15px;">💜 IndicaOS</h3>
+                    <p style="color: #9b59b6; font-weight: bold; margin-bottom: 10px;">Chill & Wellness</p>
+                    <p>Relaxation-focused bot for wellness, meditation, chill music, and indica strains with MaryJane AI in Chill Mode.</p>
+                    <ul style="margin: 15px 0 15px 20px;">
+                        <li>🧘 Serenity Sundays</li>
+                        <li>🎧 Toke & Talk Thursdays</li>
+                        <li>🌬️ Breathing exercises</li>
+                        <li>💚 Self-care tips</li>
+                        <li>🎵 Chill playlists</li>
+                    </ul>
+                    <p style="margin-top: 15px;"><strong>AI Trigger:</strong> <code>mj id &lt;message&gt;</code></p>
+                    <a href="#" class="btn btn-secondary" style="margin-top: 15px; font-size: 1em; padding: 12px 25px; border-color: #9b59b6; color: #9b59b6;">
+                        Coming Soon
+                    </a>
                 </div>
-                <div style="padding: 20px; background: rgba(0,255,0,0.1); border-radius: 10px; border: 2px solid #00ff00;">
-                    <strong style="color: #00ff00; font-size: 1.2em;">🏪 Dispensaries</strong>
-                    <p>Curated dispensary listings by region - East Coast, Midwest, West Coast</p>
+                
+                <!-- HybridOS -->
+                <div style="padding: 30px; background: linear-gradient(135deg, rgba(255,165,0,0.2), rgba(0,0,0,0.9)); border-radius: 15px; border: 3px solid #ffa500;">
+                    <h3 style="color: #ffa500; font-size: 2em; margin-bottom: 15px;">🌈 HybridOS</h3>
+                    <p style="color: #ffa500; font-weight: bold; margin-bottom: 10px;">Balanced & Versatile</p>
+                    <p>Best of both worlds - combines active community features with wellness tools. Perfect for diverse communities.</p>
+                    <ul style="margin: 15px 0 15px 20px;">
+                        <li>🌈 All strain types</li>
+                        <li>🎉 Community events</li>
+                        <li>🧘 Wellness features</li>
+                        <li>🎮 Games & activities</li>
+                        <li>💬 Social features</li>
+                    </ul>
+                    <p style="margin-top: 15px;"><strong>AI Trigger:</strong> <code>mj hy &lt;message&gt;</code></p>
+                    <a href="#" class="btn btn-secondary" style="margin-top: 15px; font-size: 1em; padding: 12px 25px; border-color: #ffa500; color: #ffa500;">
+                        Coming Soon
+                    </a>
                 </div>
-                <div style="padding: 20px; background: rgba(0,255,0,0.1); border-radius: 10px; border: 2px solid #00ff00;">
-                    <strong style="color: #00ff00; font-size: 1.2em;">📊 Auto Stats</strong>
-                    <p>Real-time stat channels that update every 10 minutes automatically</p>
-                </div>
+            </div>
+            
+            <div style="margin-top: 40px; padding: 25px; background: rgba(0,255,0,0.05); border-radius: 15px; border: 2px solid #00ff00;">
+                <h3 style="color: #00ff00;">💡 Which Bot is Right for You?</h3>
+                <p><strong style="color: #00ff00;">🌿 SativaOS:</strong> Full-featured cannabis community bot with education, events, and active engagement</p>
+                <p><strong style="color: #9b59b6;">💜 IndicaOS:</strong> Wellness and relaxation focused with meditation, self-care, and chill vibes</p>
+                <p><strong style="color: #ffa500;">🌈 HybridOS:</strong> Balanced approach with both active community features and wellness tools</p>
+                <p style="margin-top: 15px;"><strong>All bots share the same MaryJane AI brain</strong> - just with different personalities and features! 🧠</p>
             </div>
         </div>
     </div>
@@ -994,37 +1065,34 @@
     </div>
 
     <script>
-        // API URL - Change this to your bot's API server when deployed
-        const API_URL = 'http://localhost:3001';
+        // API URLs for both bots
+        const SATIVA_API = 'http://localhost:3001';
+        const INDICA_API = 'http://localhost:3002';
 
         // Page navigation
         function showPage(pageId) {
-            // Hide all pages
             document.querySelectorAll('.page').forEach(page => {
                 page.classList.remove('active');
             });
             
-            // Remove active class from nav links
             document.querySelectorAll('.nav-link').forEach(link => {
                 link.classList.remove('active');
             });
             
-            // Show selected page
             document.getElementById(pageId).classList.add('active');
             
-            // Add active class to clicked nav link
-            event.target.classList.add('active');
+            if (event && event.target) {
+                event.target.classList.add('active');
+            }
             
-            // Scroll to top
             window.scrollTo(0, 0);
             
-            // Load page-specific data
             if (pageId === 'servers') {
                 loadServers();
             }
         }
 
-        // Create falling cannabis buds with real images
+        // Create falling cannabis buds
         const bgAnimation = document.getElementById('bg-animation');
         const budImages = [
             'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"%3E%3Cdefs%3E%3CradialGradient id="bud"%3E%3Cstop offset="0%25" style="stop-color:%2300ff00;stop-opacity:0.8"/%3E%3Cstop offset="100%25" style="stop-color:%23006600;stop-opacity:0.6"/%3E%3C/radialGradient%3E%3C/defs%3E%3Cellipse cx="50" cy="50" rx="30" ry="40" fill="url(%23bud)"/%3E%3Cellipse cx="50" cy="35" rx="25" ry="30" fill="url(%23bud)" opacity="0.7"/%3E%3Cellipse cx="50" cy="65" rx="20" ry="25" fill="url(%23bud)" opacity="0.7"/%3E%3C/svg%3E'
@@ -1042,80 +1110,108 @@
             bgAnimation.appendChild(bud);
         }
 
-        // Check bot status
-        async function checkBotStatus() {
+        // Check SativaOS status
+        async function checkSativaStatus() {
             try {
-                const response = await fetch(`${API_URL}/api/health`);
-                const data = await response.json();
+                const healthResponse = await fetch(`${SATIVA_API}/api/health`);
+                const statsResponse = await fetch(`${SATIVA_API}/api/stats`);
                 
-                document.getElementById('status-text').textContent = 'Bot Online';
-                document.getElementById('status-dot').classList.remove('status-offline');
-                document.getElementById('status-core').textContent = 'Online';
-                document.getElementById('status-core').className = 'status-badge status-online';
-                
-                // Get stats
-                const statsResponse = await fetch(`${API_URL}/api/stats`);
-                const stats = await statsResponse.json();
-                
-                // Update bot status widget
-                document.getElementById('bot-stats').innerHTML = `
-                    <div>🏢 ${stats.guilds || 0} servers</div>
-                    <div>👥 ${stats.users?.toLocaleString() || 0} users</div>
-                    <div>🏓 ${stats.ping || 0}ms</div>
-                `;
-                
-                // Update status page stats
-                document.getElementById('stat-servers').textContent = stats.guilds || 0;
-                document.getElementById('stat-users').textContent = stats.users?.toLocaleString() || 0;
-                document.getElementById('stat-ping').textContent = (stats.ping || 0) + 'ms';
-                
-                // Calculate uptime
-                if (stats.uptime) {
-                    const hours = Math.floor(stats.uptime / 3600);
-                    const minutes = Math.floor((stats.uptime % 3600) / 60);
-                    document.getElementById('stat-uptime').textContent = `${hours}h ${minutes}m`;
+                if (healthResponse.ok && statsResponse.ok) {
+                    const stats = await statsResponse.json();
+                    
+                    document.getElementById('sativa-dot').classList.remove('status-offline');
+                    document.getElementById('sativa-stats').innerHTML = `
+                        <div>🏢 ${stats.guilds || 0} servers</div>
+                        <div>👥 ${stats.users?.toLocaleString() || 0} users</div>
+                        <div>🏓 ${stats.ping || 0}ms</div>
+                    `;
                 }
-                
             } catch (error) {
-                document.getElementById('status-text').textContent = 'Bot Offline';
-                document.getElementById('status-dot').classList.add('status-offline');
-                document.getElementById('bot-stats').innerHTML = '<div style="color: #ff6666;">API not connected</div>';
-                document.getElementById('status-core').textContent = 'Offline';
-                document.getElementById('status-core').className = 'status-badge status-offline';
+                document.getElementById('sativa-dot').classList.add('status-offline');
+                document.getElementById('sativa-stats').innerHTML = '<div style="color: #ff6666;">Offline</div>';
             }
         }
 
-        // Load servers list
+        // Check IndicaOS status
+        async function checkIndicaStatus() {
+            try {
+                const healthResponse = await fetch(`${INDICA_API}/api/indica/health`);
+                const statsResponse = await fetch(`${INDICA_API}/api/indica/stats`);
+                
+                if (healthResponse.ok && statsResponse.ok) {
+                    const stats = await statsResponse.json();
+                    
+                    document.getElementById('indica-dot').classList.remove('status-offline');
+                    document.getElementById('indica-stats').innerHTML = `
+                        <div>🏢 ${stats.guilds || 0} servers</div>
+                        <div>👥 ${stats.users?.toLocaleString() || 0} users</div>
+                        <div>🏓 ${stats.ping || 0}ms</div>
+                    `;
+                }
+            } catch (error) {
+                document.getElementById('indica-dot').classList.add('status-offline');
+                document.getElementById('indica-stats').innerHTML = '<div style="color: #ff6666;">Offline</div>';
+            }
+        }
+
+        // Load servers from both bots
         async function loadServers() {
             try {
-                const response = await fetch(`${API_URL}/api/guilds`);
-                const guilds = await response.json();
+                const sativaResponse = await fetch(`${SATIVA_API}/api/guilds`);
+                const sativaGuilds = await sativaResponse.json();
+                
+                let indicaGuilds = [];
+                try {
+                    const indicaResponse = await fetch(`${INDICA_API}/api/indica/guilds`);
+                    indicaGuilds = await indicaResponse.json();
+                } catch (e) {}
                 
                 const container = document.getElementById('server-list-container');
                 
-                if (guilds && guilds.length > 0) {
-                    container.innerHTML = guilds.map(guild => `
+                let html = '';
+                
+                if (sativaGuilds && sativaGuilds.length > 0) {
+                    html += '<h3 style="color: #00ff00; grid-column: 1 / -1;">🌿 SativaOS Servers</h3>';
+                    html += sativaGuilds.map(guild => `
                         <div class="server-card">
                             <h3>${guild.name}</h3>
                             <p><strong>👥 Members:</strong> ${guild.memberCount?.toLocaleString() || 'N/A'}</p>
                             <p><strong>📺 Channels:</strong> ${guild.channels || 'N/A'}</p>
-                            <p><strong>🍃 Custom Strains:</strong> ${guild.strains || 0}</p>
                         </div>
                     `).join('');
+                }
+                
+                if (indicaGuilds && indicaGuilds.length > 0) {
+                    html += '<h3 style="color: #9b59b6; grid-column: 1 / -1; margin-top: 30px;">💜 IndicaOS Servers</h3>';
+                    html += indicaGuilds.map(guild => `
+                        <div class="server-card" style="border-color: #9b59b6;">
+                            <h3 style="color: #9b59b6;">${guild.name}</h3>
+                            <p><strong>👥 Members:</strong> ${guild.memberCount?.toLocaleString() || 'N/A'}</p>
+                            <p><strong>📺 Channels:</strong> ${guild.channels || 'N/A'}</p>
+                        </div>
+                    `).join('');
+                }
+                
+                if (html) {
+                    container.innerHTML = html;
                 } else {
-                    container.innerHTML = '<p style="text-align: center; color: #888;">No servers found or API not connected</p>';
+                    container.innerHTML = '<p style="text-align: center; color: #888;">No servers found or APIs not connected</p>';
                 }
             } catch (error) {
                 document.getElementById('server-list-container').innerHTML = 
-                    '<p style="text-align: center; color: #ff6666;">Could not load servers. Connect your bot API.</p>';
+                    '<p style="text-align: center; color: #ff6666;">Could not load servers.</p>';
             }
         }
 
-        // Check status on load and every 30 seconds
-        checkBotStatus();
-        setInterval(checkBotStatus, 30000);
+        // Check both bots on load and every 30 seconds
+        checkSativaStatus();
+        checkIndicaStatus();
+        setInterval(() => {
+            checkSativaStatus();
+            checkIndicaStatus();
+        }, 30000);
 
-        // Smooth scroll for anchor links
+        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 if (this.getAttribute('href') !== '#') {

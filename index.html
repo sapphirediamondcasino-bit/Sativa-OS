@@ -308,7 +308,7 @@
             margin-bottom: 10px;
         }
 
-        /* Bot Status Widget - Dual Bot Support */
+        /* Bot Status Widget - ALL 3 BOTS */
         .bot-status {
             position: fixed;
             top: 100px;
@@ -413,6 +413,26 @@
             font-size: 1.5em;
         }
 
+        /* Dispensary Styles */
+        .dispensary-card {
+            background: rgba(0, 255, 0, 0.05);
+            padding: 25px;
+            border-radius: 15px;
+            border: 2px solid #00ff00;
+            margin-bottom: 20px;
+        }
+
+        .hot-deal {
+            background: rgba(255, 100, 0, 0.2);
+            border: 2px solid #ff6400;
+            animation: dealPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes dealPulse {
+            0%, 100% { box-shadow: 0 0 20px rgba(255, 100, 0, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(255, 100, 0, 0.6); }
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5em; }
@@ -427,13 +447,13 @@
     <div class="bg-animation" id="bg-animation"></div>
     <div class="smoke"></div>
 
-    <!-- Bot Status Widget - Both Bots -->
+    <!-- Bot Status Widget - ALL 3 BOTS -->
     <div class="bot-status" id="bot-status">
         <!-- SativaOS Status -->
         <div class="bot-status-item">
             <div style="margin-bottom: 8px;">
-                <span class="status-dot" id="sativa-dot"></span>
-                <strong style="color: #00ff00;">SativaOS</strong>
+                <span class="status-dot" id="sativa-dot" style="background: #ff0000; box-shadow: 0 0 10px #ff0000;"></span>
+                <strong style="color: #00ff00;">🌿 SativaOS</strong>
             </div>
             <div style="font-size: 0.85em; color: #888;" id="sativa-stats">
                 Loading...
@@ -443,20 +463,19 @@
         <!-- IndicaOS Status -->
         <div class="bot-status-item">
             <div style="margin-bottom: 8px;">
-                <span class="status-dot" id="indica-dot"></span>
-                <strong style="color: #9b59b6;">IndicaOS</strong>
+                <span class="status-dot" id="indica-dot" style="background: #ff0000; box-shadow: 0 0 10px #ff0000;"></span>
+                <strong style="color: #9b59b6;">💜 IndicaOS</strong>
             </div>
             <div style="font-size: 0.85em; color: #888;" id="indica-stats">
                 Loading...
             </div>
         </div>
-    </div>
 
-    <!-- HybridOS Status -->
+        <!-- HybridOS Status -->
         <div class="bot-status-item">
             <div style="margin-bottom: 8px;">
-                <span class="status-dot" id="hybrid-dot" style="background: #ffa500;"></span>
-                <strong style="color: #ffa500;">HybridOS</strong>
+                <span class="status-dot" id="hybrid-dot" style="background: #ff0000; box-shadow: 0 0 10px #ff0000;"></span>
+                <strong style="color: #ffa500;">🌈 HybridOS</strong>
             </div>
             <div style="font-size: 0.85em; color: #888;" id="hybrid-stats">
                 Coming Soon
@@ -473,10 +492,13 @@
         <div style="display: flex; gap: 10px; flex-wrap: wrap;">
             <a href="#" onclick="showPage('home')" class="nav-link active">Home</a>
             <a href="#" onclick="showPage('features')" class="nav-link">Features</a>
+            <a href="#" onclick="showPage('dispensaries')" class="nav-link">Dispensaries</a>
+            <a href="#" onclick="showPage('contests')" class="nav-link">Contests</a>
+            <a href="#" onclick="showPage('reviews')" class="nav-link">Reviews</a>
             <a href="#" onclick="showPage('setup')" class="nav-link">Setup Guide</a>
             <a href="#" onclick="showPage('commands')" class="nav-link">Commands</a>
             <a href="#" onclick="showPage('status')" class="nav-link">Status</a>
-            <a href="#" onclick="showPage('servers')" class="nav-link">Servers</a> 
+            <a href="#" onclick="showPage('servers')" class="nav-link">Servers</a>
         </div>
     </nav>
 
@@ -490,9 +512,10 @@
             
             <div class="cta-buttons"> 
                 <a href="https://discord.com/oauth2/authorize?client_id=1436536083562106882&permissions=3960434742263542&integration_type=0&scope=bot" class="btn btn-primary" target="_blank">
-                    🍃 Invite SativaOS to Your Discord
-                    <a href="https://discord.com/oauth2/authorize?client_id=1437344757859745884&permissions=2278595375660784&integration_type=0&scope=bot" class="btn btn-primary" target="_blank">
-                    💜 Invite IndicaOS to Your Discord
+                    🍃 Invite SativaOS
+                </a>
+                <a href="https://discord.com/oauth2/authorize?client_id=1437344757859745884&permissions=2278595375660784&integration_type=0&scope=bot" class="btn btn-primary" target="_blank">
+                    💜 Invite IndicaOS
                 </a>
                 <a href="#" onclick="showPage('setup')" class="btn btn-secondary">Setup Guide</a>
             </div>
@@ -569,409 +592,1164 @@
         </div>
     </div>
 
-    <!-- FEATURES PAGE -->
+    <!-- FEATURES PAGE - ALL 3 BOTS IN SECTIONS -->
     <div id="features" class="page">
         <div class="content-section">
             <h2>🔥 Complete Feature List</h2>
+            <p style="text-align: center; margin-bottom: 40px;">Features by bot - each has unique capabilities tailored to its purpose</p>
             
+            <!-- SativaOS Features -->
+            <h3 style="color: #00ff00; font-size: 2.5em; margin-top: 40px;">🌿 SativaOS Features</h3>
             <div class="feature-grid">
                 <div class="feature-card">
                     <h3>🤖 MaryJane AI Chat</h3>
                     <p><strong>Command:</strong> <code>mj &lt;message&gt;</code></p>
-                    <p>Chat with our in-house cannabis AI! Three modes:</p>
-                    <ul style="margin-left: 20px;">
-                        <li><strong>Chill Mode:</strong> Casual, friendly cannabis conversations</li>
-                        <li><strong>Grower Mode:</strong> Technical growing advice and cultivation tips</li>
-                        <li><strong>Trippy Mode:</strong> Creative, philosophical cannabis discussions</li>
-                    </ul>
-                    <p>No external APIs needed - 100% in-house AI!</p>
+                    <p>Full cannabis AI with 3 modes: Chill, Grower, Trippy</p>
                 </div>
-
                 <div class="feature-card">
                     <h3>🍃 Strain Database</h3>
-                    <p><strong>Commands:</strong> <code>/strain</code>, <code>/strains</code>, <code>/addstrain</code></p>
-                    <p>10 built-in strains plus unlimited custom strains per server!</p>
-                    <p><strong>Server owners can add:</strong></p>
-                    <ul style="margin-left: 20px;">
-                        <li>Strain name, type (Indica/Sativa/Hybrid)</li>
-                        <li>THC% and CBD% levels</li>
-                        <li>Effects, flavors, and description</li>
-                        <li>Optional image URL</li>
-                    </ul>
-                    <p>All fields required - ensures quality data!</p>
+                    <p>10 built-in strains + unlimited custom strains per server</p>
                 </div>
-
                 <div class="feature-card">
                     <h3>🏪 Dispensary Listings</h3>
-                    <p><strong>Command:</strong> <code>/shops &lt;region&gt;</code></p>
-                    <p>Licensed dispensaries organized by region:</p>
-                    <ul style="margin-left: 20px;">
-                        <li><strong>East Coast:</strong> MD, MA, NY, PA</li>
-                        <li><strong>Midwest:</strong> IL, MO, OH</li>
-                        <li><strong>West Coast:</strong> CA</li>
-                        <li><strong>Online:</strong> Ships to legal states</li>
-                    </ul>
-                    <p>Auto-creates <code>#dispensaries</code> channel if needed. All 21+ only!</p>
+                    <p>Licensed dispensaries by region - 21+ only</p>
                 </div>
-
                 <div class="feature-card">
                     <h3>📊 Auto Stat Channels</h3>
-                    <p><strong>Command:</strong> <code>/setup</code></p>
-                    <p>Creates channels at the top that update every 10 minutes:</p>
-                    <ul style="margin-left: 20px;">
-                        <li>👥 Members: XX</li>
-                        <li>🤖 Bots: XX</li>
-                        <li>📺 Channels: XX</li>
-                    </ul>
-                    <p>Plus: welcome channel, rules, strain-of-the-day, and log channels!</p>
+                    <p>Live updating member, bot, and channel counts</p>
                 </div>
-
                 <div class="feature-card">
-                    <h3>🎫 Ticket System</h3>
-                    <p><strong>Commands:</strong> <code>/ticket</code>, <code>/close</code></p>
-                    <p>Full support ticket system:</p>
-                    <ul style="margin-left: 20px;">
-                        <li>Auto-creates private ticket channels</li>
-                        <li>Only user and staff can see</li>
-                        <li>Close tickets with <code>/close</code></li>
-                        <li>All tickets logged in database</li>
-                    </ul>
+                    <h3>🔥 Free Pipe Friday</h3>
+                    <p>Weekly pipe giveaways with AI image verification</p>
                 </div>
-
                 <div class="feature-card">
-                    <h3>📈 Invite Tracking</h3>
-                    <p>Automatically tracks who invites who!</p>
-                    <p><strong>Commands:</strong> <code>/invites</code>, <code>/leaderboard</code></p>
-                    <ul style="margin-left: 20px;">
-                        <li>Check your invite count</li>
-                        <li>See server leaderboard</li>
-                        <li>Logs all invites in dedicated channel</li>
-                    </ul>
+                    <h3>💨 Free Bong Monday</h3>
+                    <p>Weekly bong giveaways with AI image verification</p>
                 </div>
-
                 <div class="feature-card">
                     <h3>🎮 Mini Games</h3>
-                    <p><strong>DuckHunt:</strong> <code>/duck</code> - Type <code>bang</code> to shoot!</p>
-                    <p><strong>Trivia:</strong> <code>/trivia</code> - Cannabis knowledge quiz</p>
-                    <p><strong>Bender Quotes:</strong> <code>/bender</code> - Random quotes</p>
-                    <p>All with beautiful embeds and point systems!</p>
+                    <p>DuckHunt, Trivia, and more</p>
                 </div>
-
                 <div class="feature-card">
-                    <h3>🎁 Giveaway System</h3>
-                    <p><strong>Command:</strong> <code>/giveaway</code></p>
-                    <p>Run automated giveaways:</p>
-                    <ul style="margin-left: 20px;">
-                        <li>Set prize and duration</li>
-                        <li>React to enter</li>
-                        <li>Auto picks random winner</li>
-                    </ul>
+                    <h3>🎫 Ticket System</h3>
+                    <p>Full support ticket system</p>
                 </div>
-
                 <div class="feature-card">
-                    <h3>🎂 Birthday System</h3>
-                    <p><strong>Command:</strong> <code>/birthday set</code></p>
-                    <p>Never forget a birthday!</p>
-                    <ul style="margin-left: 20px;">
-                        <li>Set your birthday</li>
-                        <li>Bot wishes you at midnight</li>
-                        <li>Optional birthday role</li>
-                    </ul>
+                    <h3>📈 Invite Tracking</h3>
+                    <p>Auto-track server invites</p>
                 </div>
-
                 <div class="feature-card">
                     <h3>🔨 Moderation Tools</h3>
-                    <p>Full moderation suite:</p>
-                    <ul style="margin-left: 20px;">
-                        <li><code>/ban</code> - Ban users</li>
-                        <li><code>/kick</code> - Kick users</li>
-                        <li><code>/timeout</code> - Timeout users</li>
-                        <li><code>/warn</code> - Warn users</li>
-                        <li><code>/clear</code> - Bulk delete messages</li>
-                    </ul>
+                    <p>Ban, kick, timeout, warn, clear</p>
                 </div>
-
                 <div class="feature-card">
                     <h3>💾 Server Backups</h3>
-                    <p><strong>Commands:</strong> <code>/backup</code>, <code>/restore</code></p>
-                    <p>Xenon-like backup system:</p>
-                    <ul style="margin-left: 20px;">
-                        <li>Backup all channels and roles</li>
-                        <li>Restore from backup</li>
-                        <li>Perfect for server recovery</li>
-                    </ul>
+                    <p>Xenon-like backup & restore</p>
                 </div>
-
                 <div class="feature-card">
-                    <h3>🎮 Gaming Integration</h3>
-                    <p><strong>Fortnite:</strong> <code>/fortnite &lt;username&gt;</code></p>
-                    <p><strong>Steam:</strong> <code>/steam &lt;username&gt;</code></p>
-                    <p>Check gaming stats with beautiful embeds!</p>
+                    <h3>🎂 Birthday System</h3>
+                    <p>Never forget a birthday</p>
+                </div>
+            </div>
+
+            <!-- IndicaOS Features -->
+            <h3 style="color: #9b59b6; font-size: 2.5em; margin-top: 60px;">💜 IndicaOS Features</h3>
+            <div class="feature-grid">
+                <div class="feature-card" style="border-color: #9b59b6;">
+                    <h3 style="color: #9b59b6;">🤖 MaryJane AI (Chill Mode)</h3>
+                    <p><strong>Command:</strong> <code>mj id &lt;message&gt;</code></p>
+                    <p>Relaxing, wellness-focused AI conversations</p>
+                </div>
+                <div class="feature-card" style="border-color: #9b59b6;">
+                    <h3 style="color: #9b59b6;">🧘 Serenity Sundays</h3>
+                    <p>Weekly meditation and wellness events</p>
+                </div>
+                <div class="feature-card" style="border-color: #9b59b6;">
+                    <h3 style="color: #9b59b6;">🎧 Toke & Talk Thursdays</h3>
+                    <p>Chill discussion nights every Thursday</p>
+                </div>
+                <div class="feature-card" style="border-color: #9b59b6;">
+                    <h3 style="color: #9b59b6;">🌬️ Breathing Exercises</h3>
+                    <p>Guided breathing and relaxation</p>
+                </div>
+                <div class="feature-card" style="border-color: #9b59b6;">
+                    <h3 style="color: #9b59b6;">💚 Self-Care Tips</h3>
+                    <p>Daily wellness guidance</p>
+                </div>
+                <div class="feature-card" style="border-color: #9b59b6;">
+                    <h3 style="color: #9b59b6;">🎵 Chill Playlists</h3>
+                    <p>Curated relaxation music</p>
+                </div>
+                <div class="feature-card" style="border-color: #9b59b6;">
+                    <h3 style="color: #9b59b6;">🍃 Indica Strain Focus</h3>
+                    <p>Database focused on relaxing strains</p>
+                </div>
+                <div class="feature-card" style="border-color: #9b59b6;">
+                    <h3 style="color: #9b59b6;">🧘 Meditation Timer</h3>
+                    <p>Built-in meditation sessions</p>
+                </div>
+            </div>
+
+            <!-- HybridOS Features -->
+            <h3 style="color: #ffa500; font-size: 2.5em; margin-top: 60px;">🌈 HybridOS Features (Coming Soon)</h3>
+            <div class="feature-grid">
+                <div class="feature-card" style="border-color: #ffa500; opacity: 0.7;">
+                    <h3 style="color: #ffa500;">🤖 MaryJane AI (Balanced)</h3>
+                    <p><strong>Command:</strong> <code>mj hy &lt;message&gt;</code></p>
+                    <p>Best of both worlds - active and chill modes</p>
+                </div>
+                <div class="feature-card" style="border-color: #ffa500; opacity: 0.7;">
+                    <h3 style="color: #ffa500;">🌈 All Strain Types</h3>
+                    <p>Complete database: Indica, Sativa, Hybrid</p>
+                </div>
+                <div class="feature-card" style="border-color: #ffa500; opacity: 0.7;">
+                    <h3 style="color: #ffa500;">🎉 Community Events</h3>
+                    <p>Mix of contests and wellness activities</p>
+                </div>
+                <div class="feature-card" style="border-color: #ffa500; opacity: 0.7;">
+                    <h3 style="color: #ffa500;">🎮 Games & Activities</h3>
+                    <p>Interactive games and social features</p>
+                </div>
+                <div class="feature-card" style="border-color: #ffa500; opacity: 0.7;">
+                    <h3 style="color: #ffa500;">🧘 Wellness Tools</h3>
+                    <p>Meditation and self-care features</p>
+                </div>
+                <div class="feature-card" style="border-color: #ffa500; opacity: 0.7;">
+                    <h3 style="color: #ffa500;">💬 Social Features</h3>
+                    <p>Enhanced community engagement</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- SETUP GUIDE PAGE -->
+    <!-- DISPENSARIES PAGE -->
+    <div id="dispensaries" class="page">
+        <div class="content-section">
+            <h2>🏪 Dispensary Network</h2>
+            <p style="text-align: center; font-size: 1.2em; margin-bottom: 40px;">21+ Only • Licensed Dispensaries</p>
+            
+            <!-- East Coast -->
+            <h3 style="color: #00ff00;">🌊 East Coast</h3>
+            
+            <h3 style="font-size: 1.5em; margin-top: 30px;">Maryland (5 Locations)</h3>
+            <div class="dispensary-card hot-deal">
+                <h3>🔥 Zen Leaf - Baltimore</h3>
+                <p><strong>📍 Location:</strong> Baltimore, MD</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.zenleafdispensaries.com" target="_blank" style="color: #00ff00;">zenleafdispensaries.com</a></p>
+                <p><strong>🚚 Shipping:</strong> <span style="color: #ff6400;">Local Delivery Only</span></p>
+                <p><strong>💰 Deal:</strong> 20% off all edibles this week!</p>
+            </div>
+            <div class="dispensary-card">
+                <h3>Culta - Parkville</h3>
+                <p><strong>📍 Location:</strong> Parkville, MD</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.culta.com" target="_blank" style="color: #00ff00;">culta.com</a></p>
+                <p><strong>🚚 Shipping:</strong> <span style="color: #ff6400;">Local Delivery Only</span></p>
+            </div>
+            <div class="dispensary-card">
+                <h3>Rise - Silver Spring</h3>
+                <p><strong>📍 Location:</strong> Silver Spring, MD</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.risecannabis.com" target="_blank" style="color: #00ff00;">risecannabis.com</a></p>
+                <p><strong>🚚 Shipping:</strong> <span style="color: #ff6400;">Local Delivery Only</span></p>
+            </div>
+            <div class="dispensary-card hot-deal">
+                <h3>🔥 Blair Wellness - Glen Burnie</h3>
+                <p><strong>📍 Location:</strong> Glen Burnie, MD</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.blairwellness.com" target="_blank" style="color: #00ff00;">blairwellness.com</a></p>
+                <p><strong>🚚 Shipping:</strong> <span style="color: #00ff00;">✓ Ships Statewide</span></p>
+                <p><strong>💰 Deal:</strong> $50 off orders over $200!</p>
+            </div>
+            <div class="dispensary-card">
+                <h3>Herban Legends - Frederick</h3>
+                <p><strong>📍 Location:</strong> Frederick, MD</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.herbanlegends.com" target="_blank" style="color: #00ff00;">herbanlegends.com</a></p>
+                <p><strong>🚚 Shipping:</strong> <span style="color: #ff6400;">Local Delivery Only</span></p>
+            </div>
+
+            <h3 style="font-size: 1.5em; margin-top: 30px;">Massachusetts (10 Locations)</h3>
+            <div class="dispensary-card">
+                <h3>Theory Wellness - Great Barrington</h3>
+                <p><strong>📍 Location:</strong> Great Barrington, MA</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.theorywellness.org" target="_blank" style="color: #00ff00;">theorywellness.org</a></p>
+                <p><strong>🚚 Shipping:</strong> <span style="color: #00ff00;">✓ Delivers Statewide</span></p>
+            </div>
+            <div class="dispensary-card hot-deal">
+                <h3>🔥 NETA - Brookline</h3>
+                <p><strong>📍 Location:</strong> Brookline, MA</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.netacare.org" target="_blank" style="color: #00ff00;">netacare.org</a></p>
+                <p><strong>🚚 Shipping:</strong> <span style="color: #00ff00;">✓ Delivers Statewide</span></p>
+                <p><strong>💰 Deal:</strong> Buy 2 get 1 free on select pre-rolls!</p>
+            </div>
+            <div class="dispensary-card">
+                <h3>Sira Naturals - Cambridge</h3>
+                <p><strong>📍 Location:</strong> Cambridge, MA</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.siranaturals.org" target="_blank" style="color: #00ff00;">siranaturals.org</a></p>
+                <p><strong>🚚 Shipping:</strong> <span style="color: #ff6400;">In-Store Pickup Only</span></p>
+            </div>
+            <div class="dispensary-card">
+                <h3>Berkshire Roots - Pittsfield</h3>
+                <p><strong>📍 Location:</strong> Pittsfield, MA</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.berkshireroots.com" target="_blank" style="color: #00ff00;">berkshireroots.com</a></p>
+                <p><strong>🚚 Shipping:</strong> <span style="color: #ff6400;">Local Delivery Only</span></p>
+            </div>
+            <div class="dispensary-card hot-deal">
+                <h3>🔥 Good Chemistry - Worcester</h3>
+                <p><strong>📍 Location:</strong> Worcester, MA</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.goodchemworcester.com" target="_blank" style="color: #00ff00;">goodchemworcester.com</a></p>
+                <p><strong>🚚 Shipping:</strong> <span style="color: #00ff00;">✓ Delivers Statewide</span></p>
+                <p><strong>💰 Deal:</strong> 25% off first purchase!</p>
+            </div>
+            <div class="dispensary-card">
+                <h3>Temescal Wellness - Framingham</h3>
+                <p><strong>📍 Location:</strong> Framingham, MA</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.temescalwellness.com" target="_blank" style="color: #00ff00;">temescalwellness.com</a></p>
+                <p><strong>🚚 Shipping:</strong> <span style="color: #ff6400;">Local Delivery Only</span></p>
+            </div>
+            <div class="dispensary-card">
+                <h3>Curaleaf - Hanover</h3>
+                <p><strong>📍 Location:</strong> Hanover, MA</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.curaleaf.com" target="_blank" style="color: #00ff00;">curaleaf.com</a></p>
+                <p><strong>🚚 Shipping:</strong> <span style="color: #00ff00;">✓ Delivers Statewide</span></p>
+            </div>
+            <div class="dispensary-card">
+                <h3>Revolutionary Clinics - Somerville</h3>
+                <p><strong>📍 Location:</strong> Somerville, MA</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.revolutionaryclinics.org" target="_blank" style="color: #00ff00;">revolutionaryclinics.org</a></p>
+                <p><strong>🚚 Shipping:</strong> <span style="color: #ff6400;">In-Store Pickup Only</span></p>
+            </div>
+            <div class="dispensary-card">
+                <h3>Mission - Georgetown</h3>
+                <p><strong>📍 Location:</strong> Georgetown, MA</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.mission-dispensaries.com" target="_blank" style="color: #00ff00;">mission-dispensaries.com</a></p>
+                <p><strong>🚚 Shipping:</strong> <span style="color: #ff6400;">Local Delivery Only</span></p>
+            </div>
+            <div class="dispensary-card">
+                <h3>Garden Remedies - Melrose</h3>
+                <p><strong>📍 Location:</strong> Melrose, MA</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.gardenremedies.org" target="_blank" style="color: #00ff00;">gardenremedies.org</a></p>
+                <p><strong>🚚 Shipping:</strong> <span style="color: #00ff00;">✓ Delivers Statewide</span></p>
+            </div>
+
+            <h3 style="font-size: 1.5em; margin-top: 30px;">New York (8 Locations)</h3>
+            <div class="dispensary-card">
+                <h3>MedMen - Manhattan</h3>
+                <p><strong>📍 Location:</strong> Manhattan, NY</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.medmen.com" target="_blank" style="color: #00ff00;">medmen.com</a></p>
+                <p><strong>🚚 Shipping:</strong> <span style="color: #ff6400;">Local Delivery Only</span></p>
+            </div>
+            <div class="dispensary-card">
+                <h3>Curaleaf - Queens</h3>
+                <p><strong>📍 Location:</strong> Queens, NY</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.curaleaf.com" target="_blank" style="color: #00ff00;">curaleaf.com</a></p>
+                <p><strong>🚚 Shipping:</strong> <span style="color: #00ff00;">✓ Delivers Statewide</span></p>
+            </div>
+            <div class="dispensary-card hot-deal">
+                <h3>🔥 Verilife - Buffalo</h3>
+                <p><strong>📍 Location:</strong> Buffalo, NY</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.verilife.com" target="_blank" style="color: #00ff00;">verilife.com</a></p>
+                <p><strong>🚚 Shipping:</strong> <span style="color: #00ff00;">✓ Delivers Statewide</span></p>
+                <p><strong>💰 Deal:</strong> 15% off all concentrates!</p>
+            </div>
+            <div class="dispensary-card">
+                <h3>The Botanist - Williamsville</h3>
+                <p><strong>📍 Location:</strong> Williamsville, NY</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.thebotanist.com" target="_blank" style="color: #00ff00;">thebotanist.com</a></p>
+                <p><strong>🚚 Shipping:</strong> <span style="color: #ff6400;">In-Store Pickup Only</span></p>
+            </div>
+            <div class="dispensary-card hot-deal">
+                <h3>🔥 Etain - Syracuse</h3>
+                <p><strong>📍 Location:</strong> Syracuse, NY</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.etain.com" target="_blank" style="color: #00ff00;">etain.com</a></p>
+                <p><strong>🚚 Shipping:</strong> <span style="color: #00ff00;">✓ Delivers Statewide</span></p>
+                <p><strong>💰 Deal:</strong> $75 off orders over $300!</p>
+            </div>
+            <div class="dispensary-card">
+                <h3>Pharmacann - Albany</h3>
+                <p><strong>📍 Location:</strong> Albany, NY</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.pharmacann.com" target="_blank" style="color: #00ff00;">pharmacann.com</a></p>
+                <p><strong>🚚 Shipping:</strong> <span style="color: #ff6400;">Local Delivery Only</span></p>
+            </div>
+            <div class="dispensary-card">
+                <h3>Columbia Care - Rochester</h3>
+                <p><strong>📍 Location:</strong> Rochester, NY</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.col-care.com" target="_blank" style="color: #00ff00;">col-care.com</a></p>
+                <p><strong>🚚 Shipping:</strong> <span style="color: #ff6400;">In-Store Pickup Only</span></p>
+            </div>
+            <div class="dispensary-card">
+                <h3>Sunnyside - Amherst</h3>
+                <p><strong>📍 Location:</strong> Amherst, NY</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.sunnyside.shop" target="_blank" style="color: #00ff00;">sunnyside.shop</a></p>
+                <p><strong>🚚 Shipping:</strong> <span style="color: #00ff00;">✓ Delivers Statewide</span></p>
+            </div>
+
+            <h3 style="font-size: 1.5em; margin-top: 30px;">Pennsylvania (6 Locations)</h3>
+            <div class="dispensary-card">
+                <h3>Trulieve - Philadelphia</h3>
+                <p><strong>📍 Location:</strong> Philadelphia, PA</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.trulieve.com" target="_blank" style="color: #00ff00;">trulieve.com</a></p>
+                <p><strong>🚚 Shipping:</strong> <span style="color: #00ff00;">✓ Delivers Statewide</span></p>
+            </div>
+            <div class="dispensary-card">
+                <h3>Restore - Fishtown</h3>
+                <p><strong>📍 Location:</strong> Fishtown, PA</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.restoredispensaries.com" target="_blank" style="color: #00ff00;">restoredispensaries.com</a></p>
+                <p><strong>🚚 Shipping:</strong> <span style="color: #ff6400;">In-Store Pickup Only</span></p>
+            </div>
+            <div class="dispensary-card hot-deal">
+                <h3>🔥 Beyond Hello - Pittsburgh</h3>
+                <p><strong>📍 Location:</strong> Pittsburgh, PA</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.beyond-hello.com" target="_blank" style="color: #00ff00;">beyond-hello.com</a></p>
+                <p><strong>🚚 Shipping:</strong> <span style="color: #00ff00;">✓ Delivers Statewide</span></p>
+                <p><strong>💰 Deal:</strong> 20% off all products!</p>
+            </div>
+            <div class="dispensary-card">
+                <h3>Maitri - Pittsburgh</h3>
+                <p><strong>📍 Location:</strong> Pittsburgh, PA</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.maitrimedicinals.com" target="_blank" style="color: #00ff00;">maitrimedicinals.com</a></p>
+                <p><strong>🚚 Shipping:</strong> <span style="color: #ff6400;">Local Delivery Only</span></p>
+            </div>
+            <div class="dispensary-card">
+                <h3>Ayr Wellness - Gibsonia</h3>
+                <p><strong>📍 Location:</strong> Gibsonia, PA</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.ayrwellness.com" target="_blank" style="color: #00ff00;">ayrwellness.com</a></p>
+                <p><strong>🚚 Shipping:</strong> <span style="color: #00ff00;">✓ Delivers Statewide</span></p>
+            </div>
+            <div class="dispensary-card">
+                <h3>Vytal Options - Harrisburg</h3>
+                <p><strong>📍 Location:</strong> Harrisburg, PA</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.vytaloptions.com" target="_blank" style="color: #00ff00;">vytaloptions.com</a></p>
+                <p><strong>🚚 Shipping:</strong> <span style="color: #ff6400;">In-Store Pickup Only</span></p>
+            </div>
+
+            <!-- Midwest -->
+            <h3 style="color: #00ff00; margin-top: 50px;">🌾 Midwest</h3>
+            
+            <h3 style="font-size: 1.5em; margin-top: 30px;">Illinois (4 Locations)</h3>
+            <div class="dispensary-card hot-deal">
+                <h3>🔥 Dispensary 33 - Chicago</h3>
+                <p><strong>📍 Location:</strong> Chicago, IL</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.dispensary33.com" target="_blank" style="color: #00ff00;">dispensary33.com</a></p>
+                <p><strong>💰 Deal:</strong> $100 off first-time purchase!</p>
+            </div>
+            <div class="dispensary-card">
+                <h3>Sunnyside - Rockford</h3>
+                <p><strong>📍 Location:</strong> Rockford, IL</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.sunnyside.shop" target="_blank" style="color: #00ff00;">sunnyside.shop</a></p>
+            </div>
+            <div class="dispensary-card">
+                <h3>NuEra - DeKalb</h3>
+                <p><strong>📍 Location:</strong> DeKalb, IL</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.nueracannabis.com" target="_blank" style="color: #00ff00;">nueracannabis.com</a></p>
+            </div>
+            <div class="dispensary-card">
+                <h3>Zen Leaf - St. Charles</h3>
+                <p><strong>📍 Location:</strong> St. Charles, IL</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.zenleafdispensaries.com" target="_blank" style="color: #00ff00;">zenleafdispensaries.com</a></p>
+            </div>
+
+            <h3 style="font-size: 1.5em; margin-top: 30px;">Minnesota (7 Locations)</h3>
+            <div class="dispensary-card hot-deal">
+                <h3>🔥 Rise - Bloomington</h3>
+                <p><strong>📍 Location:</strong> Bloomington, MN</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.risecannabis.com" target="_blank" style="color: #00ff00;">risecannabis.com</a></p>
+                <p><strong>💰 Deal:</strong> 25% off all flower this weekend!</p>
+            </div>
+            <div class="dispensary-card">
+                <h3>LeafLine Labs - Minneapolis</h3>
+                <p><strong>📍 Location:</strong> Minneapolis, MN</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.leaflinelabs.com" target="_blank" style="color: #00ff00;">leaflinelabs.com</a></p>
+            </div>
+            <div class="dispensary-card">
+                <h3>Vireo Health - Rochester</h3>
+                <p><strong>📍 Location:</strong> Rochester, MN</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.vireohealth.com" target="_blank" style="color: #00ff00;">vireohealth.com</a></p>
+            </div>
+            <div class="dispensary-card hot-deal">
+                <h3>🔥 Green Goods - Eagan</h3>
+                <p><strong>📍 Location:</strong> Eagan, MN</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.getgreengoods.com" target="_blank" style="color: #00ff00;">getgreengoods.com</a></p>
+                <p><strong>💰 Deal:</strong> Free pre-roll with any purchase!</p>
+            </div>
+            <div class="dispensary-card">
+                <h3>Minnesota Medical Solutions - St. Paul</h3>
+                <p><strong>📍 Location:</strong> St. Paul, MN</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.minnmed.com" target="_blank" style="color: #00ff00;">minnmed.com</a></p>
+            </div>
+            <div class="dispensary-card">
+                <h3>Heyday Cannabis - Mankato</h3>
+                <p><strong>📍 Location:</strong> Mankato, MN</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.heydaycannabis.com" target="_blank" style="color: #00ff00;">heydaycannabis.com</a></p>
+            </div>
+            <div class="dispensary-card">
+                <h3>Pure Ratios - Duluth</h3>
+                <p><strong>📍 Location:</strong> Duluth, MN</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.pureratios.com" target="_blank" style="color: #00ff00;">pureratios.com</a></p>
+            </div>
+
+            <h3 style="font-size: 1.5em; margin-top: 30px;">Ohio (3 Locations)</h3>
+            <div class="dispensary-card">
+                <h3>The Botanist - Columbus</h3>
+                <p><strong>📍 Location:</strong> Columbus, OH</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.thebotanist.com" target="_blank" style="color: #00ff00;">thebotanist.com</a></p>
+            </div>
+            <div class="dispensary-card">
+                <h3>Verdant - Cincinnati</h3>
+                <p><strong>📍 Location:</strong> Cincinnati, OH</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.verdantcreations.com" target="_blank" style="color: #00ff00;">verdantcreations.com</a></p>
+            </div>
+            <div class="dispensary-card hot-deal">
+                <h3>🔥 Bloom - Cleveland</h3>
+                <p><strong>📍 Location:</strong> Cleveland, OH</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.bloommedicinals.com" target="_blank" style="color: #00ff00;">bloommedicinals.com</a></p>
+                <p><strong>💰 Deal:</strong> 30% off all vape cartridges!</p>
+            </div>
+
+            <h3 style="font-size: 1.5em; margin-top: 30px;">Missouri (2 Locations)</h3>
+            <div class="dispensary-card">
+                <h3>N'Bliss - St. Louis</h3>
+                <p><strong>📍 Location:</strong> St. Louis, MO</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.nblisscannabis.com" target="_blank" style="color: #00ff00;">nblisscannabis.com</a></p>
+            </div>
+            <div class="dispensary-card">
+                <h3>Greenlight - Kansas City</h3>
+                <p><strong>📍 Location:</strong> Kansas City, MO</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.greenlightkc.com" target="_blank" style="color: #00ff00;">greenlightkc.com</a></p>
+            </div>
+
+            <!-- West Coast -->
+            <h3 style="color: #00ff00; margin-top: 50px;">🌅 West Coast</h3>
+            
+            <h3 style="font-size: 1.5em; margin-top: 30px;">California (5 Locations)</h3>
+            <div class="dispensary-card hot-deal">
+                <h3>🔥 MedMen - Los Angeles</h3>
+                <p><strong>📍 Location:</strong> Los Angeles, CA</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.medmen.com" target="_blank" style="color: #00ff00;">medmen.com</a></p>
+                <p><strong>💰 Deal:</strong> 40% off all edibles + free delivery!</p>
+            </div>
+            <div class="dispensary-card">
+                <h3>Harborside - Oakland</h3>
+                <p><strong>📍 Location:</strong> Oakland, CA</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.shopharborside.com" target="_blank" style="color: #00ff00;">shopharborside.com</a></p>
+            </div>
+            <div class="dispensary-card hot-deal">
+                <h3>🔥 Cookies - San Francisco</h3>
+                <p><strong>📍 Location:</strong> San Francisco, CA</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.cookiessf.com" target="_blank" style="color: #00ff00;">cookiessf.com</a></p>
+                <p><strong>💰 Deal:</strong> New strain drop - 20% off!</p>
+            </div>
+            <div class="dispensary-card">
+                <h3>The Green Cross - San Diego</h3>
+                <p><strong>📍 Location:</strong> San Diego, CA</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.thegreencrosssf.com" target="_blank" style="color: #00ff00;">thegreencrosssf.com</a></p>
+            </div>
+            <div class="dispensary-card">
+                <h3>Embarc - Sacramento</h3>
+                <p><strong>📍 Location:</strong> Sacramento, CA</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.embarc.us" target="_blank" style="color: #00ff00;">embarc.us</a></p>
+            </div>
+
+            <!-- Online -->
+            <h3 style="color: #00ff00; margin-top: 50px;">🌐 Online Dispensaries</h3>
+            <div class="dispensary-card hot-deal">
+                <h3>🔥 Leafly Marketplace</h3>
+                <p><strong>📍 Location:</strong> Online (Ships to legal states)</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.leafly.com" target="_blank" style="color: #00ff00;">leafly.com</a></p>
+                <p><strong>🚚 Shipping:</strong> <span style="color: #00ff00;">✓ Ships Nationwide (Legal States)</span></p>
+                <p><strong>💰 Deal:</strong> $25 off orders over $100!</p>
+            </div>
+            <div class="dispensary-card">
+                <h3>Weedmaps Delivery</h3>
+                <p><strong>📍 Location:</strong> Online (Local delivery)</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.weedmaps.com" target="_blank" style="color: #00ff00;">weedmaps.com</a></p>
+                <p><strong>🚚 Shipping:</strong> <span style="color: #00ff00;">✓ Ships Nationwide (Legal States)</span></p>
+            </div>
+            <div class="dispensary-card">
+                <h3>Eaze Delivery</h3>
+                <p><strong>📍 Location:</strong> Online (CA only)</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.eaze.com" target="_blank" style="color: #00ff00;">eaze.com</a></p>
+                <p><strong>🚚 Shipping:</strong> <span style="color: #ffa500;">California Only</span></p>
+            </div>
+            <div class="dispensary-card hot-deal">
+                <h3>🔥 Jane - Nationwide Marketplace</h3>
+                <p><strong>📍 Location:</strong> Online</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.iheartjane.com" target="_blank" style="color: #00ff00;">iheartjane.com</a></p>
+                <p><strong>🚚 Shipping:</strong> <span style="color: #00ff00;">✓ Ships Nationwide (Legal States)</span></p>
+                <p><strong>💰 Deal:</strong> 15% off first order!</p>
+            </div>
+            <div class="dispensary-card">
+                <h3>Dutchie - Online Ordering</h3>
+                <p><strong>📍 Location:</strong> Online</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.dutchie.com" target="_blank" style="color: #00ff00;">dutchie.com</a></p>
+                <p><strong>🚚 Shipping:</strong> <span style="color: #00ff00;">✓ Ships Nationwide (Legal States)</span></p>
+            </div>
+            
+            <!-- More States -->
+            <h3 style="color: #00ff00; margin-top: 50px;">🌟 Additional States</h3>
+            
+            <h3 style="font-size: 1.5em; margin-top: 30px;">Colorado (10 Locations)</h3>
+            <div class="dispensary-card hot-deal">
+                <h3>🔥 The Green Solution - Denver</h3>
+                <p><strong>📍 Location:</strong> Denver, CO</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.tgscolorado.com" target="_blank" style="color: #00ff00;">tgscolorado.com</a></p>
+                <p><strong>🚚 Shipping:</strong> <span style="color: #00ff00;">✓ Delivers Statewide</span></p>
+                <p><strong>💰 Deal:</strong> 30% off edibles all week!</p>
+            </div>
+            <div class="dispensary-card">
+                <h3>Native Roots - Boulder</h3>
+                <p><strong>📍 Location:</strong> Boulder, CO</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.nativerootsdispensary.com" target="_blank" style="color: #00ff00;">nativerootsdispensary.com</a></p>
+                <p><strong>🚚 Shipping:</strong> <span style="color: #ff6400;">Local Delivery Only</span></p>
+            </div>
+            <div class="dispensary-card">
+                <h3>LivWell - Colorado Springs</h3>
+                <p><strong>📍 Location:</strong> Colorado Springs, CO</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.livwell.com" target="_blank" style="color: #00ff00;">livwell.com</a></p>
+                <p><strong>🚚 Shipping:</strong> <span style="color: #00ff00;">✓ Delivers Statewide</span></p>
+            </div>
+            <div class="dispensary-card">
+                <h3>Good Chemistry - Aurora</h3>
+                <p><strong>📍 Location:</strong> Aurora, CO</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.goodchem.com" target="_blank" style="color: #00ff00;">goodchem.com</a></p>
+                <p><strong>🚚 Shipping:</strong> <span style="color: #ff6400;">In-Store Pickup Only</span></p>
+            </div>
+            <div class="dispensary-card hot-deal">
+                <h3>🔥 Starbuds - Pueblo</h3>
+                <p><strong>📍 Location:</strong> Pueblo, CO</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.starbuds.us" target="_blank" style="color: #00ff00;">starbuds.us</a></p>
+                <p><strong>🚚 Shipping:</strong> <span style="color: #00ff00;">✓ Delivers Statewide</span></p>
+                <p><strong>💰 Deal:</strong> $50 off orders over $150!</p>
+            </div>
+            <div class="dispensary-card">
+                <h3>Diego Pellicer - Denver</h3>
+                <p><strong>📍 Location:</strong> Denver, CO</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.diegopellicer.com" target="_blank" style="color: #00ff00;">diegopellicer.com</a></p>
+                <p><strong>🚚 Shipping:</strong> <span style="color: #ff6400;">Local Delivery Only</span></p>
+            </div>
+            <div class="dispensary-card">
+                <h3>The Lazy Lion - Aspen</h3>
+                <p><strong>📍 Location:</strong> Aspen, CO</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.thelazylion.com" target="_blank" style="color: #00ff00;">thelazylion.com</a></p>
+                <p><strong>🚚 Shipping:</strong> <span style="color: #ff6400;">In-Store Pickup Only</span></p>
+            </div>
+            <div class="dispensary-card">
+                <h3>Standing Akimbo - Denver</h3>
+                <p><strong>📍 Location:</strong> Denver, CO</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.standingakimbo.com" target="_blank" style="color: #00ff00;">standingakimbo.com</a></p>
+                <p><strong>🚚 Shipping:</strong> <span style="color: #00ff00;">✓ Delivers Statewide</span></p>
+            </div>
+            <div class="dispensary-card">
+                <h3>Maggie's Farm - Manitou Springs</h3>
+                <p><strong>📍 Location:</strong> Manitou Springs, CO</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.maggiesfarmmarijuana.com" target="_blank" style="color: #00ff00;">maggiesfarmmarijuana.com</a></p>
+                <p><strong>🚚 Shipping:</strong> <span style="color: #ff6400;">Local Delivery Only</span></p>
+            </div>
+            <div class="dispensary-card">
+                <h3>L'Eagle - Denver</h3>
+                <p><strong>📍 Location:</strong> Denver, CO</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.leagle.com" target="_blank" style="color: #00ff00;">leagle.com</a></p>
+                <p><strong>🚚 Shipping:</strong> <span style="color: #00ff00;">✓ Delivers Statewide</span></p>
+            </div>
+
+            <h3 style="font-size: 1.5em; margin-top: 30px;">Washington (8 Locations)</h3>
+            <div class="dispensary-card">
+                <h3>Have a Heart - Seattle</h3>
+                <p><strong>📍 Location:</strong> Seattle, WA</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.haveaheartcc.com" target="_blank" style="color: #00ff00;">haveaheartcc.com</a></p>
+                <p><strong>🚚 Shipping:</strong> <span style="color: #ff6400;">Local Delivery Only</span></p>
+            </div>
+            <div class="dispensary-card hot-deal">
+                <h3>🔥 Uncle Ike's - Seattle</h3>
+                <p><strong>📍 Location:</strong> Seattle, WA</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.uncleikespotshop.com" target="_blank" style="color: #00ff00;">uncleikespotshop.com</a></p>
+                <p><strong>🚚 Shipping:</strong> <span style="color: #00ff00;">✓ Delivers Statewide</span></p>
+                <p><strong>💰 Deal:</strong> Buy 1 get 1 50% off!</p>
+            </div>
+            <div class="dispensary-card">
+                <h3>Evergreen Market - Renton</h3>
+                <p><strong>📍 Location:</strong> Renton, WA</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.evergreenmarket.com" target="_blank" style="color: #00ff00;">evergreenmarket.com</a></p>
+                <p><strong>🚚 Shipping:</strong> <span style="color: #ff6400;">In-Store Pickup Only</span></p>
+            </div>
+            <div class="dispensary-card hot-deal">
+                <h3>🔥 Dockside - Seattle</h3>
+                <p><strong>📍 Location:</strong> Seattle, WA</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.docksidecannabis.com" target="_blank" style="color: #00ff00;">docksidecannabis.com</a></p>
+                <p><strong>🚚 Shipping:</strong> <span style="color: #00ff00;">✓ Delivers Statewide</span></p>
+                <p><strong>💰 Deal:</strong> 25% off all products!</p>
+            </div>
+            <div class="dispensary-card">
+                <h3>The Herbery - Vancouver</h3>
+                <p><strong>📍 Location:</strong> Vancouver, WA</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.theherbery.com" target="_blank" style="color: #00ff00;">theherbery.com</a></p>
+                <p><strong>🚚 Shipping:</strong> <span style="color: #ff6400;">Local Delivery Only</span></p>
+            </div>
+            <div class="dispensary-card">
+                <h3>Hashtag - Fremont</h3>
+                <p><strong>📍 Location:</strong> Fremont, WA</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.hashtagcannabis.com" target="_blank" style="color: #00ff00;">hashtagcannabis.com</a></p>
+                <p><strong>🚚 Shipping:</strong> <span style="color: #00ff00;">✓ Delivers Statewide</span></p>
+            </div>
+            <div class="dispensary-card">
+                <h3>Cannabis Central - Ellensburg</h3>
+                <p><strong>📍 Location:</strong> Ellensburg, WA</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.cannabiscentralwa.com" target="_blank" style="color: #00ff00;">cannabiscentralwa.com</a></p>
+                <p><strong>🚚 Shipping:</strong> <span style="color: #ff6400;">In-Store Pickup Only</span></p>
+            </div>
+            <div class="dispensary-card">
+                <h3>Top Shelf - Bellingham</h3>
+                <p><strong>📍 Location:</strong> Bellingham, WA</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.topshelfwa.com" target="_blank" style="color: #00ff00;">topshelfwa.com</a></p>
+                <p><strong>🚚 Shipping:</strong> <span style="color: #00ff00;">✓ Delivers Statewide</span></p>
+            </div>
+
+            <h3 style="font-size: 1.5em; margin-top: 30px;">Oregon (8 Locations)</h3>
+            <div class="dispensary-card">
+                <h3>Nectar - Portland</h3>
+                <p><strong>📍 Location:</strong> Portland, OR</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.nectarpdx.com" target="_blank" style="color: #00ff00;">nectarpdx.com</a></p>
+                <p><strong>🚚 Shipping:</strong> <span style="color: #00ff00;">✓ Delivers Statewide</span></p>
+            </div>
+            <div class="dispensary-card hot-deal">
+                <h3>🔥 Serra - Portland</h3>
+                <p><strong>📍 Location:</strong> Portland, OR</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.serracannabis.com" target="_blank" style="color: #00ff00;">serracannabis.com</a></p>
+                <p><strong>🚚 Shipping:</strong> <span style="color: #00ff00;">✓ Delivers Statewide</span></p>
+                <p><strong>💰 Deal:</strong> 20% off all concentrates!</p>
+            </div>
+            <div class="dispensary-card">
+                <h3>Electric Lettuce - Eugene</h3>
+                <p><strong>📍 Location:</strong> Eugene, OR</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.electriclettuce.com" target="_blank" style="color: #00ff00;">electriclettuce.com</a></p>
+                <p><strong>🚚 Shipping:</strong> <span style="color: #ff6400;">Local Delivery Only</span></p>
+            </div>
+            <div class="dispensary-card hot-deal">
+                <h3>🔥 La Mota - Salem</h3>
+                <p><strong>📍 Location:</strong> Salem, OR</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.lamotacannabis.com" target="_blank" style="color: #00ff00;">lamotacannabis.com</a></p>
+                <p><strong>🚚 Shipping:</strong> <span style="color: #00ff00;">✓ Delivers Statewide</span></p>
+                <p><strong>💰 Deal:</strong> $75 off orders over $250!</p>
+            </div>
+            <div class="dispensary-card">
+                <h3>The People's Dispensary - Medford</h3>
+                <p><strong>📍 Location:</strong> Medford, OR</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.thepeoplesdispensary.com" target="_blank" style="color: #00ff00;">thepeoplesdispensary.com</a></p>
+                <p><strong>🚚 Shipping:</strong> <span style="color: #ff6400;">In-Store Pickup Only</span></p>
+            </div>
+            <div class="dispensary-card">
+                <h3>Diem - Portland</h3>
+                <p><strong>📍 Location:</strong> Portland, OR</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.diemcannabis.com" target="_blank" style="color: #00ff00;">diemcannabis.com</a></p>
+                <p><strong>🚚 Shipping:</strong> <span style="color: #00ff00;">✓ Delivers Statewide</span></p>
+            </div>
+            <div class="dispensary-card">
+                <h3>Fifty Fold - Bend</h3>
+                <p><strong>📍 Location:</strong> Bend, OR</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.fiftyfoldor.com" target="_blank" style="color: #00ff00;">fiftyfoldor.com</a></p>
+                <p><strong>🚚 Shipping:</strong> <span style="color: #ff6400;">Local Delivery Only</span></p>
+            </div>
+            <div class="dispensary-card">
+                <h3>Floyd's - Portland</h3>
+                <p><strong>📍 Location:</strong> Portland, OR</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.floydscannabis.com" target="_blank" style="color: #00ff00;">floydscannabis.com</a></p>
+                <p><strong>🚚 Shipping:</strong> <span style="color: #00ff00;">✓ Delivers Statewide</span></p>
+            </div>
+
+            <h3 style="font-size: 1.5em; margin-top: 30px;">Nevada (6 Locations)</h3>
+            <div class="dispensary-card hot-deal">
+                <h3>🔥 Planet 13 - Las Vegas</h3>
+                <p><strong>📍 Location:</strong> Las Vegas, NV</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.planet13lasvegas.com" target="_blank" style="color: #00ff00;">planet13lasvegas.com</a></p>
+                <p><strong>🚚 Shipping:</strong> <span style="color: #00ff00;">✓ Delivers Statewide</span></p>
+                <p><strong>💰 Deal:</strong> $50 off orders over $150!</p>
+            </div>
+            <div class="dispensary-card">
+                <h3>The Dispensary - Henderson</h3>
+                <p><strong>📍 Location:</strong> Henderson, NV</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.tdnv.com" target="_blank" style="color: #00ff00;">tdnv.com</a></p>
+                <p><strong>🚚 Shipping:</strong> <span style="color: #ff6400;">Local Delivery Only</span></p>
+            </div>
+            <div class="dispensary-card hot-deal">
+                <h3>🔥 Euphoria Wellness - Las Vegas</h3>
+                <p><strong>📍 Location:</strong> Las Vegas, NV</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.euphoriawellness.com" target="_blank" style="color: #00ff00;">euphoriawellness.com</a></p>
+                <p><strong>🚚 Shipping:</strong> <span style="color: #00ff00;">✓ Delivers Statewide</span></p>
+                <p><strong>💰 Deal:</strong> 30% off first purchase!</p>
+            </div>
+            <div class="dispensary-card">
+                <h3>Jardin - Las Vegas</h3>
+                <p><strong>📍 Location:</strong> Las Vegas, NV</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.jardindispensary.com" target="_blank" style="color: #00ff00;">jardindispensary.com</a></p>
+                <p><strong>🚚 Shipping:</strong> <span style="color: #ff6400;">In-Store Pickup Only</span></p>
+            </div>
+            <div class="dispensary-card">
+                <h3>Oasis - North Las Vegas</h3>
+                <p><strong>📍 Location:</strong> North Las Vegas, NV</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.oasiscannabis.com" target="_blank" style="color: #00ff00;">oasiscannabis.com</a></p>
+                <p><strong>🚚 Shipping:</strong> <span style="color: #00ff00;">✓ Delivers Statewide</span></p>
+            </div>
+            <div class="dispensary-card">
+                <h3>The Source - Las Vegas</h3>
+                <p><strong>📍 Location:</strong> Las Vegas, NV</p>
+                <p><strong>🌐 Website:</strong> <a href="https://www.thesourcenv.com" target="_blank" style="color: #00ff00;">thesourcenv.com</a></p>
+                <p><strong>🚚 Shipping:</strong> <span style="color: #ff6400;">Local Delivery Only</span></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTESTS PAGE -->
+    <div id="contests" class="page">
+        <div class="content-section">
+            <h2>🎉 Weekly Contests</h2>
+            <p style="text-align: center; font-size: 1.2em; margin-bottom: 40px;">Win prizes every week across all MJ420 bots!</p>
+            
+            <!-- SativaOS Contests -->
+            <h3 style="color: #00ff00; font-size: 2.5em; margin-top: 40px;">🌿 SativaOS Contests</h3>
+            
+            <div style="padding: 40px; background: rgba(0,255,0,0.1); border-radius: 15px; border: 2px solid #00ff00; margin-bottom: 30px;">
+                <h3 style="color: #00ff00; font-size: 2em;">🔥 Free Pipe Friday</h3>
+                <p style="font-size: 1.2em; margin: 20px 0;">Every Friday we give away a FREE glass pipe!</p>
+                
+                <h4 style="color: #00ff00; margin-top: 20px;">📋 How to Enter:</h4>
+                <ol style="margin-left: 20px; line-height: 2;">
+                    <li>Post a photo of your current piece in the <code>#free-pipe-friday</code> channel</li>
+                    <li>Photo must be YOUR pipe (AI verification enabled)</li>
+                    <li>Include the hashtag <strong>#FreePipeFriday</strong> in your post</li>
+                    <li>One entry per person per week</li>
+                    <li>Must be 21+ and have verified age in server</li>
+                </ol>
+                
+                <h4 style="color: #00ff00; margin-top: 20px;">🏆 Prize:</h4>
+                <p>High-quality glass pipe (winner's choice of style)</p>
+                
+                <h4 style="color: #00ff00; margin-top: 20px;">⏰ Drawing:</h4>
+                <p>Winner announced every Friday at 8PM EST</p>
+                
+                <h4 style="color: #00ff00; margin-top: 20px;">🤖 AI Verification:</h4>
+                <p>All entries are verified by AI to ensure authenticity. Stock photos or images from the internet will be automatically rejected.</p>
+            </div>
+
+            <div style="padding: 40px; background: rgba(0,255,0,0.1); border-radius: 15px; border: 2px solid #00ff00; margin-bottom: 30px;">
+                <h3 style="color: #00ff00; font-size: 2em;">💨 Free Bong Monday</h3>
+                <p style="font-size: 1.2em; margin: 20px 0;">Start the week right with a chance to win a FREE bong!</p>
+                
+                <h4 style="color: #00ff00; margin-top: 20px;">📋 How to Enter:</h4>
+                <ol style="margin-left: 20px; line-height: 2;">
+                    <li>Post a photo of your current bong in the <code>#free-bong-monday</code> channel</li>
+                    <li>Photo must be YOUR bong (AI verification enabled)</li>
+                    <li>Include the hashtag <strong>#FreeBongMonday</strong> in your post</li>
+                    <li>One entry per person per week</li>
+                    <li>Must be 21+ and have verified age in server</li>
+                </ol>
+                
+                <h4 style="color: #00ff00; margin-top: 20px;">🏆 Prize:</h4>
+                <p>Premium glass bong (winner's choice of size/style)</p>
+                
+                <h4 style="color: #00ff00; margin-top: 20px;">⏰ Drawing:</h4>
+                <p>Winner announced every Monday at 8PM EST</p>
+                
+                <h4 style="color: #00ff00; margin-top: 20px;">🤖 AI Verification:</h4>
+                <p>All entries are verified by AI to ensure authenticity. Stock photos or images from the internet will be automatically rejected.</p>
+            </div>
+
+            <!-- IndicaOS Contests -->
+            <h3 style="color: #9b59b6; font-size: 2.5em; margin-top: 60px;">💜 IndicaOS Contests</h3>
+            
+            <div style="padding: 40px; background: rgba(155,89,182,0.1); border-radius: 15px; border: 2px solid #9b59b6; margin-bottom: 30px;">
+                <h3 style="color: #9b59b6; font-size: 2em;">🧘 Serenity Sundays</h3>
+                <p style="font-size: 1.2em; margin: 20px 0;">Win wellness prize packages every Sunday!</p>
+                
+                <h4 style="color: #9b59b6; margin-top: 20px;">📋 How to Enter:</h4>
+                <ol style="margin-left: 20px; line-height: 2;">
+                    <li>Share your favorite meditation or relaxation spot (photo) in <code>#serenity-sundays</code></li>
+                    <li>Include a brief description of why it's your peaceful place</li>
+                    <li>Use hashtag <strong>#SerenityMoment</strong></li>
+                    <li>One entry per person per week</li>
+                    <li>Must be 21+ and have verified age in server</li>
+                </ol>
+                
+                <h4 style="color: #9b59b6; margin-top: 20px;">🏆 Prize:</h4>
+                <p>Wellness bundle: essential oils, meditation guide, and premium indica strain sample</p>
+                
+                <h4 style="color: #9b59b6; margin-top: 20px;">⏰ Drawing:</h4>
+                <p>Winner announced every Sunday at 7PM EST</p>
+                
+                <h4 style="color: #9b59b6; margin-top: 20px;">🤖 AI Verification:</h4>
+                <p>Photos are verified for authenticity.</p>
+            </div>
+
+            <div style="padding: 40px; background: rgba(155,89,182,0.1); border-radius: 15px; border: 2px solid #9b59b6; margin-bottom: 30px;">
+                <h3 style="color: #9b59b6; font-size: 2em;">🎧 Toke & Talk Thursdays</h3>
+                <p style="font-size: 1.2em; margin: 20px 0;">Win premium audio gear for your chill sessions!</p>
+                
+                <h4 style="color: #9b59b6; margin-top: 20px;">📋 How to Enter:</h4>
+                <ol style="margin-left: 20px; line-height: 2;">
+                    <li>Share your favorite chill music or podcast in <code>#toke-talk-thursdays</code></li>
+                    <li>Post a photo of your listening setup</li>
+                    <li>Use hashtag <strong>#TokeAndTalk</strong></li>
+                    <li>One entry per person per week</li>
+                    <li>Must be 21+ and have verified age in server</li>
+                </ol>
+                
+                <h4 style="color: #9b59b6; margin-top: 20px;">🏆 Prize:</h4>
+                <p>Bluetooth speaker or headphones + chill music playlist bundle</p>
+                
+                <h4 style="color: #9b59b6; margin-top: 20px;">⏰ Drawing:</h4>
+                <p>Winner announced every Thursday at 8PM EST</p>
+                
+                <h4 style="color: #9b59b6; margin-top: 20px;">🤖 AI Verification:</h4>
+                <p>Photos are verified for authenticity.</p>
+            </div>
+
+            <!-- HybridOS Contests -->
+            <h3 style="color: #ffa500; font-size: 2.5em; margin-top: 60px;">🌈 HybridOS Contests (Coming Soon)</h3>
+            
+            <div style="padding: 40px; background: rgba(255,165,0,0.1); border-radius: 15px; border: 2px solid #ffa500; opacity: 0.7;">
+                <p style="text-align: center; font-size: 1.3em; color: #ffa500;">HybridOS will feature contests that combine the best of SativaOS and IndicaOS!</p>
+                <p style="text-align: center; margin-top: 20px;">Stay tuned for:</p>
+                <ul style="margin: 20px auto; max-width: 600px;">
+                    <li>🌈 Weekly balanced lifestyle contests</li>
+                    <li>🎉 Community creativity challenges</li>
+                    <li>🏆 Grand prize giveaways</li>
+                    <li>🎮 Gaming tournaments</li>
+                </ul>
+            </div>
+
+            <div style="margin-top: 50px; padding: 30px; background: rgba(255,255,255,0.05); border-radius: 15px;">
+                <h3 style="color: #ff6400; text-align: center;">⚠️ Contest Rules - MJ420 OFFICIAL SERVERS ONLY</h3>
+                <p style="text-align: center; margin: 15px 0; color: #ff6400; font-weight: bold;">These contests are ONLY for MJ420 Official Discord Servers</p>
+                <ul style="margin: 20px 0 0 20px; line-height: 2;">
+                    <li>Must be 21+ years old</li>
+                    <li>Must be a verified member of an MJ420 Official Server</li>
+                    <li>One entry per person per contest per week</li>
+                    <li>Winners are responsible for shipping costs (if applicable)</li>
+                    <li>AI verification is used to prevent fraud</li>
+                    <li>Stock photos or internet images will be rejected</li>
+                    <li>Winners will be contacted via DM</li>
+                    <li>Must respond within 48 hours to claim prize</li>
+                    <li>MJ420 reserves the right to disqualify any entry</li>
+                </ul>
+                <div style="margin-top: 30px; padding: 20px; background: rgba(0,255,0,0.1); border-radius: 10px;">
+                    <h4 style="color: #00ff00;">📢 For Other Server Owners:</h4>
+                    <p>You can run your own contests with your own rules! However:</p>
+                    <ul style="margin: 10px 0 0 20px;">
+                        <li>You control your own contest rules</li>
+                        <li>You cannot change what is given away in MJ420 official contests</li>
+                        <li>You may opt to give gift cards instead of physical prizes</li>
+                        <li>Your contests are separate from MJ420 official contests</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- REVIEWS PAGE -->
+    <div id="reviews" class="page">
+        <div class="content-section">
+            <h2>⭐ User Reviews</h2>
+            <p style="text-align: center; font-size: 1.2em; margin-bottom: 40px;">Share your experience with MJ420 bots!</p>
+            
+            <div style="padding: 60px 40px; background: rgba(0,255,0,0.05); border-radius: 15px; border: 2px solid #00ff00; margin-bottom: 30px; text-align: center;">
+                <h3 style="color: #00ff00; font-size: 2em; margin-bottom: 20px;">📝 Submit Your Review</h3>
+                <p style="margin: 20px 0; font-size: 1.2em;">Be the first to review MJ420 bots!</p>
+                
+                <div style="display: flex; gap: 20px; justify-content: center; margin-top: 30px; flex-wrap: wrap;">
+                    <a href="https://discord.com/oauth2/authorize?client_id=1436536083562106882&permissions=3960434742263542&integration_type=0&scope=bot" class="btn btn-primary" target="_blank">
+                        Review SativaOS
+                    </a>
+                    <a href="https://discord.com/oauth2/authorize?client_id=1437344757859745884&permissions=2278595375660784&integration_type=0&scope=bot" class="btn btn-primary" target="_blank" style="background: linear-gradient(135deg, #9b59b6, #8e44ad);">
+                        Review IndicaOS
+                    </a>
+                    <button class="btn btn-secondary" style="border-color: #ffa500; color: #ffa500; opacity: 0.5; cursor: not-allowed;" disabled>
+                        Review HybridOS (Coming Soon)
+                    </button>
+                </div>
+                
+                <p style="color: #888; font-size: 0.9em; margin-top: 30px;">Join our Discord server and share your experience in the #reviews channel</p>
+                <p style="color: #888; font-size: 0.9em;">All reviews are verified by AI to ensure authenticity</p>
+            </div>
+
+            <div style="padding: 40px; background: rgba(255,255,255,0.03); border-radius: 15px; text-align: center;">
+                <h3 style="color: #00ff00; margin-bottom: 20px;">No Reviews Yet</h3>
+                <p style="font-size: 1.1em; color: #888;">Be the first to try MJ420 bots and leave a review!</p>
+                <p style="margin-top: 20px;">Real user reviews will appear here once submitted and verified.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SETUP GUIDE PAGE - ALL 3 BOTS IN SECTIONS -->
     <div id="setup" class="page">
         <div class="content-section">
             <h2>🛠️ Complete Setup Guide</h2>
+            <p style="text-align: center; margin-bottom: 40px;">Setup instructions for each bot with their unique features</p>
+            
+            <!-- SativaOS Setup -->
+            <h3 style="color: #00ff00; font-size: 2.5em; margin-top: 40px;">🌿 SativaOS Setup</h3>
             
             <h3>Step 1: Invite the Bot</h3>
-            <p>Click the invite link and select your server. Make sure to grant all requested permissions!</p>
+            <p>Click the invite link and grant all permissions!</p>
             <a href="https://discord.com/oauth2/authorize?client_id=1436536083562106882&permissions=3960434742263542&integration_type=0&scope=bot" class="btn btn-primary" target="_blank" style="margin: 20px 0;">
                 Invite SativaOS
             </a>
 
             <h3>Step 2: Run Initial Setup</h3>
-            <p>In any channel, type:</p>
             <div class="command-item">
                 <div class="command-name">/setup</div>
-                <p>This will automatically create:</p>
-                <ul style="margin-left: 20px;">
-                    <li>📊 Stat channels at the top (Members, Bots, Channels)</li>
-                    <li>👋 Welcome channel</li>
-                    <li>📜 Rules channel</li>
-                    <li>🍃 Strain of the day channel</li>
-                    <li>📝 Invite log channel</li>
-                    <li>🔧 Mod log channel</li>
-                    <li>🎫 Ticket category</li>
-                </ul>
+                <p>Auto-creates: Stat channels (Members, Bots, Channels), Welcome, Rules, Strain-of-the-day, Invite log, Mod log, Ticket category</p>
             </div>
 
-            <h3>Step 3: Add Custom Strains (Optional)</h3>
-            <p>Server owners can add unlimited custom strains:</p>
-            <div class="command-item">
-                <div class="command-name">/addstrain</div>
-                <p><strong>Required fields:</strong></p>
-                <ul style="margin-left: 20px;">
-                    <li><strong>name:</strong> Strain name</li>
-                    <li><strong>type:</strong> Indica, Sativa, or Hybrid</li>
-                    <li><strong>thc:</strong> THC percentage (0-35)</li>
-                    <li><strong>cbd:</strong> CBD percentage (0-25)</li>
-                    <li><strong>effects:</strong> Comma-separated (e.g., "relaxed, happy, sleepy")</li>
-                    <li><strong>flavors:</strong> Comma-separated (e.g., "earthy, pine, sweet")</li>
-                    <li><strong>description:</strong> Full description</li>
-                    <li><strong>image:</strong> (Optional) Image URL</li>
-                </ul>
-            </div>
-
-            <h3>Step 4: Setup Dispensary Channel</h3>
-            <p>Want to list dispensaries? Use:</p>
-            <div class="command-item">
-                <div class="command-name">/shops &lt;region&gt;</div>
-                <p>Choose from: <code>east</code>, <code>midwest</code>, <code>west</code>, or <code>online</code></p>
-                <p>Bot will auto-create <code>#dispensaries</code> channel if it doesn't exist!</p>
-            </div>
-
-            <h3>Step 5: Configure Special Event Channels</h3>
-            <p>Setup weekly event channels:</p>
+            <h3>Step 3: Setup Contest Channels</h3>
             <div class="command-item">
                 <div class="command-name">/setup-events</div>
-                <p>Creates special channels for:</p>
-                <ul style="margin-left: 20px;">
-                    <li>🔥 <strong>Free Pipe Friday:</strong> Weekly pipe giveaways</li>
-                    <li>💨 <strong>Free Bong Monday:</strong> Weekly bong giveaways</li>
-                    <li>📸 <strong>Weed Photos Only:</strong> Cannabis photography showcase</li>
-                </ul>
+                <p>Creates: 🔥 Free Pipe Friday, 💨 Free Bong Monday, 📸 Weed Photos Only channels</p>
             </div>
 
-            <h3>Step 6: Start Using MaryJane AI</h3>
-            <p>Chat with the cannabis AI in any channel:</p>
+            <h3>Step 4: Add Custom Strains (Optional)</h3>
             <div class="command-item">
-                <div class="command-name">mj &lt;your message&gt;</div>
-                <p>Example: <code>mj what's the best indica for sleep?</code></p>
+                <div class="command-name">/addstrain</div>
+                <p>Server Owner Only - Add custom strains with: name, type, THC%, CBD%, effects, flavors, description, optional image</p>
             </div>
 
-            <h3>Troubleshooting</h3>
-            <p><strong>Bot not responding?</strong></p>
-            <ul style="margin-left: 20px;">
-                <li>Check bot has "Send Messages" permission in the channel</li>
-                <li>Make sure bot role is above other roles</li>
-                <li>Check bot is online (see status widget on this page)</li>
-            </ul>
+            <h3>Step 5: Setup Dispensary Channel</h3>
+            <div class="command-item">
+                <div class="command-name">/shops &lt;region&gt;</div>
+                <p>Choose region: east/midwest/west/online. Auto-creates #dispensaries channel</p>
+            </div>
 
-            <p><strong>Commands not showing up?</strong></p>
-            <ul style="margin-left: 20px;">
-                <li>Wait a few minutes after inviting bot</li>
-                <li>Try kicking and re-inviting the bot</li>
-                <li>Make sure you granted "applications.commands" permission</li>
-            </ul>
+            <h3>Step 6: Configure Ticket System</h3>
+            <div class="command-item">
+                <div class="command-name">/ticket</div>
+                <p>Users create support tickets. Staff use /close to close them</p>
+            </div>
 
-            <p><strong>Can't add strains?</strong></p>
-            <ul style="margin-left: 20px;">
-                <li>Only server owners can use <code>/addstrain</code></li>
-                <li>All fields except image are required</li>
-                <li>Make sure percentages are in valid ranges</li>
-            </ul>
+            <h3>Step 7: Setup Birthday System</h3>
+            <div class="command-item">
+                <div class="command-name">/birthday set</div>
+                <p>Members set birthdays, bot wishes them at midnight with optional role</p>
+            </div>
+
+            <h3>Step 8: Configure Moderation</h3>
+            <p>Available commands: /ban, /kick, /timeout, /warn, /clear</p>
+            <p>All actions logged in mod-log channel</p>
+
+            <h3>Step 9: Setup Backups</h3>
+            <div class="command-item">
+                <div class="command-name">/backup</div>
+                <p>Creates full server backup (channels, roles, settings)</p>
+            </div>
+            <div class="command-item">
+                <div class="command-name">/restore</div>
+                <p>Restore from backup if needed</p>
+            </div>
+
+            <h3>Step 10: Start Using MaryJane AI</h3>
+            <div class="command-item">
+                <div class="command-name">mj &lt;message&gt;</div>
+                <p>3 AI modes: Chill, Grower, Trippy. Example: <code>mj what's the best sativa for energy?</code></p>
+            </div>
+
+            <h3>🔧 Troubleshooting</h3>
+            <p><strong>Bot not responding?</strong> Check permissions, role hierarchy, bot online status</p>
+            <p><strong>Commands not showing?</strong> Wait a few minutes or re-invite bot</p>
+            <p><strong>Can't add strains?</strong> Only server owners can use /addstrain</p>
+
+            <!-- IndicaOS Setup -->
+            <h3 style="color: #9b59b6; font-size: 2.5em; margin-top: 60px;">💜 IndicaOS Setup</h3>
+            
+            <h3>Step 1: Invite the Bot</h3>
+            <a href="https://discord.com/oauth2/authorize?client_id=1437344757859745884&permissions=2278595375660784&integration_type=0&scope=bot" class="btn btn-primary" target="_blank" style="margin: 20px 0; background: linear-gradient(135deg, #9b59b6, #8e44ad);">
+                Invite IndicaOS
+            </a>
+
+            <h3>Step 2: Run Initial Setup</h3>
+            <div class="command-item" style="border-color: #9b59b6;">
+                <div class="command-name" style="color: #9b59b6;">/setup</div>
+                <p>Creates: Wellness channels, Meditation spaces, Chill zones, Self-care areas</p>
+            </div>
+
+            <h3>Step 3: Setup Wellness Events</h3>
+            <div class="command-item" style="border-color: #9b59b6;">
+                <div class="command-name" style="color: #9b59b6;">/setup-wellness</div>
+                <p>Creates: 🧘 Serenity Sundays, 🎧 Toke & Talk Thursdays channels</p>
+            </div>
+
+            <h3>Step 4: Configure Meditation Features</h3>
+            <div class="command-item" style="border-color: #9b59b6;">
+                <div class="command-name" style="color: #9b59b6;">/meditate</div>
+                <p>Members can start guided meditation sessions</p>
+            </div>
+
+            <h3>Step 5: Setup Breathing Exercises</h3>
+            <div class="command-item" style="border-color: #9b59b6;">
+                <div class="command-name" style="color: #9b59b6;">/breathe</div>
+                <p>Provides breathing exercise guides for relaxation</p>
+            </div>
+
+            <h3>Step 6: Configure Self-Care System</h3>
+            <div class="command-item" style="border-color: #9b59b6;">
+                <div class="command-name" style="color: #9b59b6;">/selfcare</div>
+                <p>Daily self-care tips and wellness guidance</p>
+            </div>
+
+            <h3>Step 7: Setup Playlist System</h3>
+            <div class="command-item" style="border-color: #9b59b6;">
+                <div class="command-name" style="color: #9b59b6;">/playlist</div>
+                <p>Curated chill music playlists for relaxation</p>
+            </div>
+
+            <h3>Step 8: Add Indica Strains</h3>
+            <div class="command-item" style="border-color: #9b59b6;">
+                <div class="command-name" style="color: #9b59b6;">/addstrain</div>
+                <p>Focus on relaxing indica strains for wellness</p>
+            </div>
+
+            <h3>Step 9: Start Using Chill Mode AI</h3>
+            <div class="command-item" style="border-color: #9b59b6;">
+                <div class="command-name" style="color: #9b59b6;">mj id &lt;message&gt;</div>
+                <p>Wellness-focused AI. Example: <code>mj id meditation tips for beginners</code></p>
+            </div>
+
+            <h3>🔧 Troubleshooting</h3>
+            <p><strong>Wellness features not working?</strong> Ensure proper channel permissions</p>
+            <p><strong>Meditation timer issues?</strong> Check bot can send embeds</p>
+            <p><strong>Playlist not loading?</strong> Verify bot has link permissions</p>
+
+            <!-- HybridOS Setup -->
+            <h3 style="color: #ffa500; font-size: 2.5em; margin-top: 60px;">🌈 HybridOS Setup (Coming Soon)</h3>
+            
+            <div style="padding: 40px; background: rgba(255, 165, 0, 0.1); border-radius: 15px; border: 2px solid #ffa500; opacity: 0.7;">
+                <h3 style="color: #ffa500; margin-bottom: 20px;">HybridOS - Best of Both Worlds + MORE!</h3>
+                
+                <h4 style="color: #ffa500;">Combines SativaOS + IndicaOS Features:</h4>
+                <ul style="margin: 20px 0 0 20px; line-height: 2;">
+                    <li>All contest types (Pipe Friday, Bong Monday, Serenity Sunday, Toke & Talk)</li>
+                    <li>Complete strain database (Indica, Sativa, Hybrid)</li>
+                    <li>Dispensary listings + wellness resources</li>
+                    <li>Games + meditation features</li>
+                    <li>Moderation + self-care tools</li>
+                    <li>Backups + wellness tracking</li>
+                </ul>
+                
+                <h4 style="color: #ffa500; margin-top: 30px;">PLUS Exclusive HybridOS Features:</h4>
+                <ul style="margin: 20px 0 0 20px; line-height: 2;">
+                    <li>🎮 <strong>Gaming Tournaments:</strong> Competitive events with prizes</li>
+                    <li>🎨 <strong>Creative Challenges:</strong> Art, music, and content creation contests</li>
+                    <li>🌍 <strong>Community Polling:</strong> Let members vote on server decisions</li>
+                    <li>📊 <strong>Advanced Analytics:</strong> Detailed server insights and trends</li>
+                    <li>🎭 <strong>Role-Playing Events:</strong> Interactive story-based activities</li>
+                    <li>🏆 <strong>Achievement System:</strong> Unlock badges and rewards</li>
+                    <li>💬 <strong>Enhanced Social Features:</strong> Member spotlights, shoutouts</li>
+                    <li>🤖 <strong>Balanced AI Mode:</strong> Switches between active and chill automatically</li>
+                    <li>🎪 <strong>Event Calendar:</strong> Automated scheduling for all activities</li>
+                    <li>📱 <strong>Mobile App Integration:</strong> Push notifications for contests</li>
+                </ul>
+                
+                <p style="margin-top: 20px; color: #ffa500; font-weight: bold;">HybridOS is designed for diverse communities that want EVERYTHING!</p>
+            </div>
         </div>
     </div>
 
-    <!-- COMMANDS PAGE -->
+    <!-- COMMANDS PAGE - ALL 3 BOTS IN SECTIONS -->
     <div id="commands" class="page">
         <div class="content-section">
             <h2>📚 Complete Command List</h2>
+            <p style="text-align: center; margin-bottom: 40px;">Commands organized by bot</p>
+            
+            <!-- SativaOS Commands -->
+            <h3 style="color: #00ff00; font-size: 2.5em; margin-top: 40px;">🌿 SativaOS Commands</h3>
             
             <h3>🌿 Cannabis Commands</h3>
             <div class="command-list">
                 <div class="command-item">
                     <div class="command-name">/strain &lt;name&gt;</div>
-                    <p>View detailed information about any strain (global + server custom strains)</p>
+                    <p>View detailed strain information</p>
                 </div>
                 <div class="command-item">
                     <div class="command-name">/strains</div>
-                    <p>List all available strains on this server</p>
+                    <p>List all available strains</p>
                 </div>
                 <div class="command-item">
                     <div class="command-name">/addstrain</div>
-                    <p><strong>Server Owner Only</strong> - Add custom strain to your server (ALL fields required except image)</p>
-                </div>
-                <div class="command-item">
-                    <div class="command-name">/removestrain &lt;name&gt;</div>
-                    <p><strong>Server Owner Only</strong> - Remove a custom strain from your server</p>
+                    <p>Server Owner Only - Add custom strain</p>
                 </div>
                 <div class="command-item">
                     <div class="command-name">/shops &lt;region&gt;</div>
-                    <p>List licensed dispensaries by region (east/midwest/west/online). Auto-creates #dispensaries channel. 21+ only!</p>
+                    <p>List dispensaries by region</p>
                 </div>
                 <div class="command-item">
                     <div class="command-name">mj &lt;message&gt;</div>
-                    <p>Chat with MaryJane AI - In-house cannabis AI with strain knowledge</p>
+                    <p>Chat with MaryJane AI</p>
                 </div>
             </div>
 
-            <h3>🎮 Game Commands</h3>
+            <h3>🎮 Game & Fun Commands</h3>
             <div class="command-list">
                 <div class="command-item">
                     <div class="command-name">/duck</div>
-                    <p>Start DuckHunt game - Type "bang" to shoot the duck!</p>
+                    <p>Play DuckHunt</p>
                 </div>
                 <div class="command-item">
                     <div class="command-name">/trivia</div>
-                    <p>Play cannabis trivia - Test your weed knowledge!</p>
+                    <p>Cannabis trivia quiz</p>
                 </div>
                 <div class="command-item">
                     <div class="command-name">/bender</div>
-                    <p>Get a random Bender quote</p>
-                </div>
-                <div class="command-item">
-                    <div class="command-name">/fortnite &lt;username&gt;</div>
-                    <p>Check Fortnite stats</p>
-                </div>
-                <div class="command-item">
-                    <div class="command-name">/steam &lt;username&gt;</div>
-                    <p>Check Steam profile</p>
+                    <p>Random Bender quote</p>
                 </div>
             </div>
 
-            <h3>🔧 Server Management</h3>
+            <!-- IndicaOS Commands -->
+            <h3 style="color: #9b59b6; font-size: 2.5em; margin-top: 60px;">💜 IndicaOS Commands</h3>
+            
+            <h3>💜 Wellness Commands</h3>
             <div class="command-list">
-                <div class="command-item">
-                    <div class="command-name">/setup</div>
-                    <p><strong>Admin Only</strong> - Auto-create all stat channels, welcome, rules, logs, and ticket category</p>
+                <div class="command-item" style="border-color: #9b59b6;">
+                    <div class="command-name" style="color: #9b59b6;">mj id &lt;message&gt;</div>
+                    <p>Chat with MaryJane AI (Chill Mode)</p>
                 </div>
-                <div class="command-item">
-                    <div class="command-name">/setup-events</div>
-                    <p><strong>Admin Only</strong> - Create Free Pipe Friday, Free Bong Monday, and Weed Photos channels</p>
+                <div class="command-item" style="border-color: #9b59b6;">
+                    <div class="command-name" style="color: #9b59b6;">/meditate</div>
+                    <p>Start guided meditation</p>
                 </div>
-                <div class="command-item">
-                    <div class="command-name">/config</div>
-                    <p><strong>Admin Only</strong> - Configure server settings</p>
+                <div class="command-item" style="border-color: #9b59b6;">
+                    <div class="command-name" style="color: #9b59b6;">/breathe</div>
+                    <p>Breathing exercise guide</p>
                 </div>
-                <div class="command-item">
-                    <div class="command-name">/backup</div>
-                    <p><strong>Admin Only</strong> - Create server backup (channels, roles, settings)</p>
+                <div class="command-item" style="border-color: #9b59b6;">
+                    <div class="command-name" style="color: #9b59b6;">/selfcare</div>
+                    <p>Daily self-care tips</p>
                 </div>
-                <div class="command-item">
-                    <div class="command-name">/restore</div>
-                    <p><strong>Admin Only</strong> - Restore from backup</p>
+                <div class="command-item" style="border-color: #9b59b6;">
+                    <div class="command-name" style="color: #9b59b6;">/playlist</div>
+                    <p>Get chill music playlists</p>
                 </div>
             </div>
 
-            <h3>🎫 Support System</h3>
-            <div class="command-list">
-                <div class="command-item">
-                    <div class="command-name">/ticket</div>
-                    <p>Open a support ticket - Creates private channel visible only to you and staff</p>
-                </div>
-                <div class="command-item">
-                    <div class="command-name">/close</div>
-                    <p>Close your ticket - Staff can also use this</p>
-                </div>
-            </div>
-
-            <h3>📊 Stats & Tracking</h3>
-            <div class="command-list">
-                <div class="command-item">
-                    <div class="command-name">/invites</div>
-                    <p>Check how many people you've invited</p>
-                </div>
-                <div class="command-item">
-                    <div class="command-name">/leaderboard</div>
-                    <p>View server invite leaderboard</p>
-                </div>
-            </div>
-
-            <h3>🎁 Events & Giveaways</h3>
-            <div class="command-list">
-                <div class="command-item">
-                    <div class="command-name">/giveaway &lt;prize&gt; &lt;duration&gt;</div>
-                    <p><strong>Admin Only</strong> - Start automated giveaway. Users react to enter!</p>
-                </div>
-                <div class="command-item">
-                    <div class="command-name">/birthday set &lt;date&gt;</div>
-                    <p>Set your birthday - Bot will wish you happy birthday at midnight!</p>
-                </div>
-            </div>
-
-            <h3>🔨 Moderation</h3>
-            <div class="command-list">
-                <div class="command-item">
-                    <div class="command-name">/ban &lt;user&gt; [reason]</div>
-                    <p><strong>Moderator Only</strong> - Ban user from server</p>
-                </div>
-                <div class="command-item">
-                    <div class="command-name">/kick &lt;user&gt; [reason]</div>
-                    <p><strong>Moderator Only</strong> - Kick user from server</p>
-                </div>
-                <div class="command-item">
-                    <div class="command-name">/timeout &lt;user&gt; &lt;duration&gt; [reason]</div>
-                    <p><strong>Moderator Only</strong> - Timeout user (mute for specified time)</p>
-                </div>
-                <div class="command-item">
-                    <div class="command-name">/warn &lt;user&gt; &lt;reason&gt;</div>
-                    <p><strong>Moderator Only</strong> - Warn user (logged in database)</p>
-                </div>
-                <div class="command-item">
-                    <div class="command-name">/clear &lt;amount&gt;</div>
-                    <p><strong>Moderator Only</strong> - Bulk delete messages (1-100)</p>
-                </div>
-            </div>
-
-            <h3>ℹ️ Utility</h3>
-            <div class="command-list">
-                <div class="command-item">
-                    <div class="command-name">/help</div>
-                    <p>View all available commands</p>
-                </div>
-                <div class="command-item">
-                    <div class="command-name">/ping</div>
-                    <p>Check bot latency and response time</p>
-                </div>
+            <!-- HybridOS Commands -->
+            <h3 style="color: #ffa500; font-size: 2.5em; margin-top: 60px;">🌈 HybridOS Commands (Coming Soon)</h3>
+            
+            <div style="padding: 40px; background: rgba(255, 165, 0, 0.1); border-radius: 15px; border: 2px solid #ffa500; opacity: 0.7;">
+                <h3 style="color: #ffa500;">Commands will include:</h3>
+                <ul style="margin: 20px 0 0 20px;">
+                    <li><code>mj hy &lt;message&gt;</code> - Balanced AI mode</li>
+                    <li><code>/strain &lt;name&gt;</code> - All strain types</li>
+                    <li><code>/setup</code> - Complete server setup</li>
+                    <li>And many more!</li>
+                </ul>
             </div>
         </div>
     </div>
 
-    <!-- STATUS PAGE -->
+    <!-- STATUS PAGE - ALL 3 BOTS -->
     <div id="status" class="page">
         <div class="content-section">
-            <h2>📡 Bot Status</h2>
-            <p style="text-align: center; font-size: 1.2em;">Real-time status of all SativaOS systems</p>
+            <h2>📡 Network Status</h2>
+            <p style="text-align: center; font-size: 1.2em; margin-bottom: 50px;">Real-time status of all MJ420 bots</p>
             
+            <!-- SativaOS Status -->
+            <h3 style="color: #00ff00; font-size: 2.5em; margin-top: 40px;">🌿 SativaOS Status</h3>
             <div class="status-grid">
                 <div class="status-item">
                     <h3>🤖 Bot Core</h3>
-                    <span class="status-badge status-online" id="status-core">Online</span>
+                    <span class="status-badge status-online">Online</span>
                     <p style="margin-top: 10px;">Main bot systems operational</p>
                 </div>
                 <div class="status-item">
@@ -989,30 +1767,10 @@
                     <span class="status-badge status-online">Online</span>
                     <p style="margin-top: 10px;">Auto-updating every 10 min</p>
                 </div>
-                <div class="status-item">
-                    <h3>🎫 Ticket System</h3>
-                    <span class="status-badge status-online">Online</span>
-                    <p style="margin-top: 10px;">Support tickets working</p>
-                </div>
-                <div class="status-item">
-                    <h3>🏪 Dispensaries</h3>
-                    <span class="status-badge status-online">Online</span>
-                    <p style="margin-top: 10px;">All listings active</p>
-                </div>
-                <div class="status-item">
-                    <h3>🎮 Games</h3>
-                    <span class="status-badge status-online">Online</span>
-                    <p style="margin-top: 10px;">DuckHunt, Trivia working</p>
-                </div>
-                <div class="status-item">
-                    <h3>💾 Backups</h3>
-                    <span class="status-badge status-online">Online</span>
-                    <p style="margin-top: 10px;">Backup system operational</p>
-                </div>
             </div>
 
-            <div style="margin-top: 50px;">
-                <h2>🚧 Coming Soon</h2>
+            <div style="margin-top: 30px;">
+                <h3 style="color: #00ff00;">🚧 SativaOS Coming Soon</h3>
                 <div class="status-grid">
                     <div class="status-item">
                         <h3>👑 Owner Dashboard</h3>
@@ -1037,28 +1795,159 @@
                 </div>
             </div>
 
-            <div id="live-stats" style="margin-top: 50px;">
-                <h2>📈 Live Statistics</h2>
+            <div style="margin-top: 40px;">
+                <h3 style="color: #00ff00;">📈 SativaOS Live Statistics</h3>
                 <div class="status-grid">
                     <div class="status-item">
                         <h3>🏢 Servers</h3>
-                        <p style="font-size: 2.5em; color: #00ff00; margin: 15px 0;" id="stat-servers">-</p>
+                        <p style="font-size: 2.5em; color: #00ff00; margin: 15px 0;" id="sativa-stat-servers">-</p>
                         <p>Total servers using SativaOS</p>
                     </div>
                     <div class="status-item">
                         <h3>👥 Users</h3>
-                        <p style="font-size: 2.5em; color: #00ff00; margin: 15px 0;" id="stat-users">-</p>
+                        <p style="font-size: 2.5em; color: #00ff00; margin: 15px 0;" id="sativa-stat-users">-</p>
                         <p>Total users across all servers</p>
                     </div>
                     <div class="status-item">
                         <h3>🏓 Ping</h3>
-                        <p style="font-size: 2.5em; color: #00ff00; margin: 15px 0;" id="stat-ping">-</p>
+                        <p style="font-size: 2.5em; color: #00ff00; margin: 15px 0;" id="sativa-stat-ping">-</p>
                         <p>Bot response time</p>
                     </div>
                     <div class="status-item">
                         <h3>⏱️ Uptime</h3>
-                        <p style="font-size: 2.5em; color: #00ff00; margin: 15px 0;" id="stat-uptime">-</p>
+                        <p style="font-size: 2.5em; color: #00ff00; margin: 15px 0;" id="sativa-stat-uptime">-</p>
                         <p>Time since last restart</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- IndicaOS Status -->
+            <h3 style="color: #9b59b6; font-size: 2.5em; margin-top: 60px;">💜 IndicaOS Status</h3>
+            <div class="status-grid">
+                <div class="status-item" style="border-color: #9b59b6;">
+                    <h3 style="color: #9b59b6;">🤖 Bot Core</h3>
+                    <span class="status-badge status-online">Online</span>
+                    <p style="margin-top: 10px;">Main bot systems operational</p>
+                </div>
+                <div class="status-item" style="border-color: #9b59b6;">
+                    <h3 style="color: #9b59b6;">💜 MaryJane AI</h3>
+                    <span class="status-badge status-online">Online</span>
+                    <p style="margin-top: 10px;">Chill Mode active</p>
+                </div>
+                <div class="status-item" style="border-color: #9b59b6;">
+                    <h3 style="color: #9b59b6;">🗄️ Database</h3>
+                    <span class="status-badge status-online">Online</span>
+                    <p style="margin-top: 10px;">MongoDB connected</p>
+                </div>
+                <div class="status-item" style="border-color: #9b59b6;">
+                    <h3 style="color: #9b59b6;">🧘 Wellness Tools</h3>
+                    <span class="status-badge status-online">Online</span>
+                    <p style="margin-top: 10px;">All features working</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 30px;">
+                <h3 style="color: #9b59b6;">🚧 IndicaOS Coming Soon</h3>
+                <div class="status-grid">
+                    <div class="status-item" style="border-color: #9b59b6;">
+                        <h3 style="color: #9b59b6;">👑 Owner Dashboard</h3>
+                        <span class="status-badge status-coming-soon">Coming Soon</span>
+                        <p style="margin-top: 10px;">Full bot control panel</p>
+                    </div>
+                    <div class="status-item" style="border-color: #9b59b6;">
+                        <h3 style="color: #9b59b6;">🌍 Global Admin</h3>
+                        <span class="status-badge status-coming-soon">Coming Soon</span>
+                        <p style="margin-top: 10px;">Network-wide management</p>
+                    </div>
+                    <div class="status-item" style="border-color: #9b59b6;">
+                        <h3 style="color: #9b59b6;">👥 Staff Dashboard</h3>
+                        <span class="status-badge status-coming-soon">Coming Soon</span>
+                        <p style="margin-top: 10px;">Nexus server tools</p>
+                    </div>
+                    <div class="status-item" style="border-color: #9b59b6;">
+                        <h3 style="color: #9b59b6;">🏢 Server Dashboard</h3>
+                        <span class="status-badge status-coming-soon">Coming Soon</span>
+                        <p style="margin-top: 10px;">Per-server admin panel</p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 40px;">
+                <h3 style="color: #9b59b6;">📈 IndicaOS Live Statistics</h3>
+                <div class="status-grid">
+                    <div class="status-item" style="border-color: #9b59b6;">
+                        <h3 style="color: #9b59b6;">🏢 Servers</h3>
+                        <p style="font-size: 2.5em; color: #9b59b6; margin: 15px 0;" id="indica-stat-servers">-</p>
+                        <p>Total servers using IndicaOS</p>
+                    </div>
+                    <div class="status-item" style="border-color: #9b59b6;">
+                        <h3 style="color: #9b59b6;">👥 Users</h3>
+                        <p style="font-size: 2.5em; color: #9b59b6; margin: 15px 0;" id="indica-stat-users">-</p>
+                        <p>Total users across all servers</p>
+                    </div>
+                    <div class="status-item" style="border-color: #9b59b6;">
+                        <h3 style="color: #9b59b6;">🏓 Ping</h3>
+                        <p style="font-size: 2.5em; color: #9b59b6; margin: 15px 0;" id="indica-stat-ping">-</p>
+                        <p>Bot response time</p>
+                    </div>
+                    <div class="status-item" style="border-color: #9b59b6;">
+                        <h3 style="color: #9b59b6;">⏱️ Uptime</h3>
+                        <p style="font-size: 2.5em; color: #9b59b6; margin: 15px 0;" id="indica-stat-uptime">-</p>
+                        <p>Time since last restart</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- HybridOS Status -->
+            <h3 style="color: #ffa500; font-size: 2.5em; margin-top: 60px;">🌈 HybridOS Status (Coming Soon)</h3>
+            <div style="padding: 40px; background: rgba(255, 165, 0, 0.1); border-radius: 15px; border: 2px solid #ffa500; opacity: 0.7;">
+                <p style="text-align: center; font-size: 1.3em; color: #ffa500;">HybridOS is currently in development. All systems will be available when the bot launches!</p>
+                
+                <div style="margin-top: 30px;">
+                    <h3 style="color: #ffa500;">🚧 HybridOS Coming Soon</h3>
+                    <div class="status-grid">
+                        <div class="status-item" style="border-color: #ffa500;">
+                            <h3 style="color: #ffa500;">👑 Owner Dashboard</h3>
+                            <span class="status-badge status-coming-soon">Coming Soon</span>
+                        </div>
+                        <div class="status-item" style="border-color: #ffa500;">
+                            <h3 style="color: #ffa500;">🌍 Global Admin</h3>
+                            <span class="status-badge status-coming-soon">Coming Soon</span>
+                        </div>
+                        <div class="status-item" style="border-color: #ffa500;">
+                            <h3 style="color: #ffa500;">👥 Staff Dashboard</h3>
+                            <span class="status-badge status-coming-soon">Coming Soon</span>
+                        </div>
+                        <div class="status-item" style="border-color: #ffa500;">
+                            <h3 style="color: #ffa500;">🏢 Server Dashboard</h3>
+                            <span class="status-badge status-coming-soon">Coming Soon</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 40px;">
+                    <h3 style="color: #ffa500;">📈 HybridOS Live Statistics</h3>
+                    <div class="status-grid">
+                        <div class="status-item" style="border-color: #ffa500;">
+                            <h3 style="color: #ffa500;">🏢 Servers</h3>
+                            <p style="font-size: 2.5em; color: #ffa500; margin: 15px 0;">-</p>
+                            <p>Coming Soon</p>
+                        </div>
+                        <div class="status-item" style="border-color: #ffa500;">
+                            <h3 style="color: #ffa500;">👥 Users</h3>
+                            <p style="font-size: 2.5em; color: #ffa500; margin: 15px 0;">-</p>
+                            <p>Coming Soon</p>
+                        </div>
+                        <div class="status-item" style="border-color: #ffa500;">
+                            <h3 style="color: #ffa500;">🏓 Ping</h3>
+                            <p style="font-size: 2.5em; color: #ffa500; margin: 15px 0;">-</p>
+                            <p>Coming Soon</p>
+                        </div>
+                        <div class="status-item" style="border-color: #ffa500;">
+                            <h3 style="color: #ffa500;">⏱️ Uptime</h3>
+                            <p style="font-size: 2.5em; color: #ffa500; margin: 15px 0;">-</p>
+                            <p>Coming Soon</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1069,7 +1958,7 @@
     <div id="servers" class="page">
         <div class="content-section">
             <h2>🌍 Servers Using MJ420</h2>
-            <p style="text-align: center; font-size: 1.2em;">Real-time list of servers using the bot</p>
+            <p style="text-align: center; font-size: 1.2em;">Real-time list of servers using all MJ420 bots</p>
             
             <div id="server-list-container" class="server-grid" style="margin-top: 30px;">
                 <p style="text-align: center; color: #888;">Loading servers...</p>
@@ -1078,9 +1967,10 @@
     </div>
 
     <script>
-        // API URLs for both bots
+        // API URLs for all 3 bots
         const SATIVA_API = 'http://localhost:3001';
         const INDICA_API = 'http://localhost:3002';
+        const HYBRID_API = 'http://localhost:3003';
 
         // Page navigation
         function showPage(pageId) {
@@ -1123,7 +2013,7 @@
             bgAnimation.appendChild(bud);
         }
 
-        // Check SativaOS status
+        // Check SativaOS status and update Live Statistics
         async function checkSativaStatus() {
             try {
                 const healthResponse = await fetch(`${SATIVA_API}/api/health`);
@@ -1132,20 +2022,40 @@
                 if (healthResponse.ok && statsResponse.ok) {
                     const stats = await statsResponse.json();
                     
-                    document.getElementById('sativa-dot').classList.remove('status-offline');
+                    // Change dot to GREEN and make it FLASH
+                    const dot = document.getElementById('sativa-dot');
+                    dot.style.background = '#00ff00';
+                    dot.style.boxShadow = '0 0 20px #00ff00';
+                    dot.style.animation = 'pulse 2s infinite';
+                    
                     document.getElementById('sativa-stats').innerHTML = `
                         <div>🏢 ${stats.guilds || 0} servers</div>
                         <div>👥 ${stats.users?.toLocaleString() || 0} users</div>
                         <div>🏓 ${stats.ping || 0}ms</div>
                     `;
+                    
+                    // Update Live Statistics on Status Page
+                    const serversEl = document.getElementById('sativa-stat-servers');
+                    const usersEl = document.getElementById('sativa-stat-users');
+                    const pingEl = document.getElementById('sativa-stat-ping');
+                    const uptimeEl = document.getElementById('sativa-stat-uptime');
+                    
+                    if (serversEl) serversEl.textContent = stats.guilds || '-';
+                    if (usersEl) usersEl.textContent = stats.users?.toLocaleString() || '-';
+                    if (pingEl) pingEl.textContent = (stats.ping || 0) + 'ms';
+                    if (uptimeEl) uptimeEl.textContent = stats.uptime || '-';
                 }
             } catch (error) {
-                document.getElementById('sativa-dot').classList.add('status-offline');
+                // Keep RED and make it FLASH
+                const dot = document.getElementById('sativa-dot');
+                dot.style.background = '#ff0000';
+                dot.style.boxShadow = '0 0 20px #ff0000';
+                dot.style.animation = 'pulse 2s infinite';
                 document.getElementById('sativa-stats').innerHTML = '<div style="color: #ff6666;">Offline</div>';
             }
         }
 
-        // Check IndicaOS status
+        // Check IndicaOS status and update Live Statistics
         async function checkIndicaStatus() {
             try {
                 const healthResponse = await fetch(`${INDICA_API}/api/indica/health`);
@@ -1154,20 +2064,71 @@
                 if (healthResponse.ok && statsResponse.ok) {
                     const stats = await statsResponse.json();
                     
-                    document.getElementById('indica-dot').classList.remove('status-offline');
+                    // Change dot to PURPLE and make it FLASH
+                    const dot = document.getElementById('indica-dot');
+                    dot.style.background = '#9b59b6';
+                    dot.style.boxShadow = '0 0 20px #9b59b6';
+                    dot.style.animation = 'pulse 2s infinite';
+                    
                     document.getElementById('indica-stats').innerHTML = `
+                        <div>🏢 ${stats.guilds || 0} servers</div>
+                        <div>👥 ${stats.users?.toLocaleString() || 0} users</div>
+                        <div>🏓 ${stats.ping || 0}ms</div>
+                    `;
+                    
+                    // Update Live Statistics on Status Page
+                    const serversEl = document.getElementById('indica-stat-servers');
+                    const usersEl = document.getElementById('indica-stat-users');
+                    const pingEl = document.getElementById('indica-stat-ping');
+                    const uptimeEl = document.getElementById('indica-stat-uptime');
+                    
+                    if (serversEl) serversEl.textContent = stats.guilds || '-';
+                    if (usersEl) usersEl.textContent = stats.users?.toLocaleString() || '-';
+                    if (pingEl) pingEl.textContent = (stats.ping || 0) + 'ms';
+                    if (uptimeEl) uptimeEl.textContent = stats.uptime || '-';
+                }
+            } catch (error) {
+                // Keep RED and make it FLASH
+                const dot = document.getElementById('indica-dot');
+                dot.style.background = '#ff0000';
+                dot.style.boxShadow = '0 0 20px #ff0000';
+                dot.style.animation = 'pulse 2s infinite';
+                document.getElementById('indica-stats').innerHTML = '<div style="color: #ff6666;">Offline</div>';
+            }
+        }
+
+        // HybridOS - Will turn GOLD when online
+        async function checkHybridStatus() {
+            try {
+                const healthResponse = await fetch(`${HYBRID_API}/api/hybrid/health`);
+                const statsResponse = await fetch(`${HYBRID_API}/api/hybrid/stats`);
+                
+                if (healthResponse.ok && statsResponse.ok) {
+                    const stats = await statsResponse.json();
+                    
+                    // Change dot to GOLD and make it FLASH
+                    const dot = document.getElementById('hybrid-dot');
+                    dot.style.background = '#ffa500';
+                    dot.style.boxShadow = '0 0 20px #ffa500';
+                    dot.style.animation = 'pulse 2s infinite';
+                    
+                    document.getElementById('hybrid-stats').innerHTML = `
                         <div>🏢 ${stats.guilds || 0} servers</div>
                         <div>👥 ${stats.users?.toLocaleString() || 0} users</div>
                         <div>🏓 ${stats.ping || 0}ms</div>
                     `;
                 }
             } catch (error) {
-                document.getElementById('indica-dot').classList.add('status-offline');
-                document.getElementById('indica-stats').innerHTML = '<div style="color: #ff6666;">Offline</div>';
+                // Keep RED and make it FLASH for "Coming Soon"
+                const dot = document.getElementById('hybrid-dot');
+                dot.style.background = '#ff0000';
+                dot.style.boxShadow = '0 0 20px #ff0000';
+                dot.style.animation = 'pulse 2s infinite';
+                document.getElementById('hybrid-stats').innerHTML = '<div style="color: #ffa500;">Coming Soon</div>';
             }
         }
 
-        // Load servers from both bots
+        // Load servers from all bots
         async function loadServers() {
             try {
                 const sativaResponse = await fetch(`${SATIVA_API}/api/guilds`);
@@ -1189,7 +2150,7 @@
                         <div class="server-card">
                             <h3>${guild.name}</h3>
                             <p><strong>👥 Members:</strong> ${guild.memberCount?.toLocaleString() || 'N/A'}</p>
-                            <p><strong>📺 Channels:</strong> ${guild.channels || 'N/A'}</p>
+                            <p><strong>📺 Channels:</strong> ${guild.channelCount || guild.channels || 'N/A'}</p>
                         </div>
                     `).join('');
                 }
@@ -1200,9 +2161,30 @@
                         <div class="server-card" style="border-color: #9b59b6;">
                             <h3 style="color: #9b59b6;">${guild.name}</h3>
                             <p><strong>👥 Members:</strong> ${guild.memberCount?.toLocaleString() || 'N/A'}</p>
-                            <p><strong>📺 Channels:</strong> ${guild.channels || 'N/A'}</p>
+                            <p><strong>📺 Channels:</strong> ${guild.channelCount || guild.channels || 'N/A'}</p>
                         </div>
                     `).join('');
+                }
+                
+                // Try to load HybridOS servers (will fail until bot is ready)
+                try {
+                    const hybridResponse = await fetch(`${HYBRID_API}/api/hybrid/guilds`);
+                    const hybridGuilds = await hybridResponse.json();
+                    
+                    if (hybridGuilds && hybridGuilds.length > 0) {
+                        html += '<h3 style="color: #ffa500; grid-column: 1 / -1; margin-top: 30px;">🌈 HybridOS Servers</h3>';
+                        html += hybridGuilds.map(guild => `
+                            <div class="server-card" style="border-color: #ffa500;">
+                                <h3 style="color: #ffa500;">${guild.name}</h3>
+                                <p><strong>👥 Members:</strong> ${guild.memberCount?.toLocaleString() || 'N/A'}</p>
+                                <p><strong>📺 Channels:</strong> ${guild.channelCount || guild.channels || 'N/A'}</p>
+                            </div>
+                        `).join('');
+                    }
+                } catch (e) {
+                    // HybridOS not ready yet - show "Coming Soon"
+                    html += '<h3 style="color: #ffa500; grid-column: 1 / -1; margin-top: 30px;">🌈 HybridOS Servers</h3>';
+                    html += '<div style="grid-column: 1 / -1; padding: 30px; background: rgba(255,165,0,0.1); border-radius: 15px; border: 2px solid #ffa500; text-align: center;"><p style="color: #ffa500;">Coming Soon</p></div>';
                 }
                 
                 if (html) {
@@ -1216,12 +2198,15 @@
             }
         }
 
-        // Check both bots on load and every 30 seconds
+        // Check all bots on load and every 30 seconds
         checkSativaStatus();
         checkIndicaStatus();
+        checkHybridStatus();
+        
         setInterval(() => {
             checkSativaStatus();
             checkIndicaStatus();
+            checkHybridStatus();
         }, 30000);
 
         // Smooth scroll

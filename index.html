@@ -2019,12 +2019,12 @@
                 const statusResponse = await fetch(`${SATIVA_API}/api/status`);
                 const healthResponse = await fetch(`${SATIVA_API}/api/health`);
                 const statsResponse = await fetch(`${SATIVA_API}/api/stats`);
+                const guildsResponse = await fetch(`${SATIVA_API}/api/guilds`);
                 
                 if (statusResponse.ok) {
                     const stats = await statusResponse.json();
 
                     if (healthResponse.ok && statsResponse.ok) {
-                    const stats = await statsResponse.json();
                     
                     // Change dot to GREEN and make it FLASH
                     const dot = document.getElementById('sativa-dot');
@@ -2041,12 +2041,13 @@
                     
                     // Update Live Statistics on Status Page
                     const serversEl = document.getElementById('sativa-stat-servers');
+                    const serversE2 = document.getE2ementById('sativa-stat-servers');
                     const usersEl = document.getElementById('sativa-stat-users');
                     const pingEl = document.getElementById('sativa-stat-ping');
                     const uptimeEl = document.getElementById('sativa-stat-uptime');
                     
                     if (serversEl) serversEl.textContent = stats.guilds || '-';
-                    if (serversEl) serversEl.textContent = stats.servers || '-';
+                    if (serversE2) serversE2.textContent = stats.servers || '-';
                     if (usersEl) usersEl.textContent = stats.users?.toLocaleString() || '-';
                     if (pingEl) pingEl.textContent = (stats.ping || 0) + 'ms';
                     if (uptimeEl) uptimeEl.textContent = stats.uptime || '-';

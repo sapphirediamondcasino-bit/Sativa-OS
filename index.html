@@ -2022,6 +2022,9 @@
                 
                 if (statusResponse.ok) {
                     const stats = await statusResponse.json();
+
+                    if (healthResponse.ok && statsResponse.ok) {
+                    const stats = await statsResponse.json();
                     
                     // Change dot to GREEN and make it FLASH
                     const dot = document.getElementById('sativa-dot');
@@ -2031,6 +2034,7 @@
                     
                     document.getElementById('sativa-stats').innerHTML = `
                         <div>🏢 ${stats.guilds || 0} servers</div>
+                        <div>🏢 ${stats.servers || 0} servers</div>
                         <div>👥 ${stats.users?.toLocaleString() || 0} users</div>
                         <div>🏓 ${stats.ping || 0}ms</div>
                     `;
@@ -2042,6 +2046,7 @@
                     const uptimeEl = document.getElementById('sativa-stat-uptime');
                     
                     if (serversEl) serversEl.textContent = stats.guilds || '-';
+                    if (serversEl) serversEl.textContent = stats.servers || '-';
                     if (usersEl) usersEl.textContent = stats.users?.toLocaleString() || '-';
                     if (pingEl) pingEl.textContent = (stats.ping || 0) + 'ms';
                     if (uptimeEl) uptimeEl.textContent = stats.uptime || '-';

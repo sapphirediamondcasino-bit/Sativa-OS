@@ -1968,7 +1968,7 @@
 
     <script>
         // API URLs for all 3 bots
-        const SATIVA_API = 'https://api.mj420.online:3001/api/status';
+        const SATIVA_API = 'https://api.mj420.online:3001';
         const INDICA_API = 'http://localhost:3002';
         const HYBRID_API = 'http://localhost:3003';
 
@@ -2016,11 +2016,10 @@
         // Check SativaOS status and update Live Statistics
         async function checkSativaStatus() {
             try {
-                const healthResponse = await fetch(`${SATIVA_API}/api/health`);
-                const statsResponse = await fetch(`${SATIVA_API}/api/stats`);
+                const statusResponse = await fetch(`${SATIVA_API}/api/status`);
                 
                 if (healthResponse.ok && statsResponse.ok) {
-                    const stats = await statsResponse.json();
+                    const stats = await statusResponse.json();
                     
                     // Change dot to GREEN and make it FLASH
                     const dot = document.getElementById('sativa-dot');
@@ -2031,7 +2030,6 @@
                     document.getElementById('sativa-stats').innerHTML = `
                         <div>🏢 ${stats.guilds || 0} servers</div>
                         <div>👥 ${stats.users?.toLocaleString() || 0} users</div>
-                        <div>🏓 ${stats.ping || 0}ms</div>
                     `;
                     
                     // Update Live Statistics on Status Page
@@ -2042,7 +2040,7 @@
                     
                     if (serversEl) serversEl.textContent = stats.guilds || '-';
                     if (usersEl) usersEl.textContent = stats.users?.toLocaleString() || '-';
-                    if (pingEl) pingEl.textContent = (stats.ping || 0) + 'ms';
+                    if (pingEl) pingEl.textContent = 'N/A';
                     if (uptimeEl) uptimeEl.textContent = stats.uptime || '-';
                 }
             } catch (error) {

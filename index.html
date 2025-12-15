@@ -2022,9 +2022,7 @@
                 const guildsResponse = await fetch(`${SATIVA_API}/api/guilds`);
                 
                 if (statusResponse.ok) {
-                    const stats = await statusResponse.json();
-
-                    if (healthResponse.ok && statsResponse.ok) {
+                    const stats = await statusResponse.json()
                     
                     // Change dot to GREEN and make it FLASH
                     const dot = document.getElementById('sativa-dot');
@@ -2040,8 +2038,8 @@
                     `;
                     
                     // Update Live Statistics on Status Page
-                    const serversEl = document.getElementById('sativa-stat-servers');
-                    const serversE2 = document.getE2ementById('sativa-stat-servers');
+                    const serversEl = document.getElementById('sativa-stat-guilds');
+                    const serversE2 = document.getElementById('sativa-stat-servers');
                     const usersEl = document.getElementById('sativa-stat-users');
                     const pingEl = document.getElementById('sativa-stat-ping');
                     const uptimeEl = document.getElementById('sativa-stat-uptime');

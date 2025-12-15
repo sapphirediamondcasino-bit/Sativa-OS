@@ -2038,7 +2038,7 @@
                     const pingEl = document.getElementById('sativa-stat-ping');
                     const uptimeEl = document.getElementById('sativa-stat-uptime');
                     
-                    if (serversEl) serversEl.textContent = stats.servers || '-';
+                    if (serversEl) serversEl.textContent = stats.guilds || '-';
                     if (usersEl) usersEl.textContent = stats.users?.toLocaleString() || '-';
                     if (pingEl) pingEl.textContent = 'N/A';
                     if (uptimeEl) uptimeEl.textContent = stats.uptime || '-';

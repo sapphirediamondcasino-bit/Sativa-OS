@@ -2018,7 +2018,7 @@
             try {
                 const statusResponse = await fetch(`${SATIVA_API}/api/status`);
                 
-                if (healthResponse.ok && statsResponse.ok) {
+                if (statusResponse.ok) {
                     const stats = await statusResponse.json();
                     
                     // Change dot to GREEN and make it FLASH
@@ -2028,7 +2028,7 @@
                     dot.style.animation = 'pulse 2s infinite';
                     
                     document.getElementById('sativa-stats').innerHTML = `
-                        <div>🏢 ${stats.guilds || 0} servers</div>
+                        <div>🏢 ${stats.servers || 0} servers</div>
                         <div>👥 ${stats.users?.toLocaleString() || 0} users</div>
                     `;
                     
@@ -2038,7 +2038,7 @@
                     const pingEl = document.getElementById('sativa-stat-ping');
                     const uptimeEl = document.getElementById('sativa-stat-uptime');
                     
-                    if (serversEl) serversEl.textContent = stats.guilds || '-';
+                    if (serversEl) serversEl.textContent = stats.servers || '-';
                     if (usersEl) usersEl.textContent = stats.users?.toLocaleString() || '-';
                     if (pingEl) pingEl.textContent = 'N/A';
                     if (uptimeEl) uptimeEl.textContent = stats.uptime || '-';
